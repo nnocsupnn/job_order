@@ -8,7 +8,7 @@
 
 
 
-<div class="ui raised horizontal segments">   
+<div class="ui raised horizontal segments" id="segments">   
         <button class="ui facebook icon button" id="btnProjects"><i class="bar chart icon"></i> Statistics</button> 
 <div class="ui  segment">
     <center>
@@ -179,6 +179,16 @@ crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.js"></script>
 
 <script>
+    if(window.screen.availWidth < 800){
+        $('#segments').removeClass('horizontal');
+        $('#segments').addClass('vertical');
+        $('#btnProjects').css('width','100%');
+        console.log(window.screen.availWidth + " megaa");
+    }
+    else{
+        $('#segments').removeClass('vertical');
+        $('#segments').addClass('horizontal');
+    }
     $('#btnProjects').on('click',()=>{
         $('#modalCode').modal('show');
     });

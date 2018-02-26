@@ -1,0 +1,18 @@
+div#loginDiv{
+    width: 20%;
+    margin-top: 50px;
+}
+
+div#detailss {
+    margin: 40px;
+    color: white;
+}
+
+@media only screen and (max-width: 480px) {
+    div#loginDiv {
+        width: 50%;
+    }
+    div#detailss {
+        margin: 5px;
+    }
+}

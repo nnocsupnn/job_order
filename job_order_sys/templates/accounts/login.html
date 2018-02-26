@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="{% static 'tabico/icon_doc.ico' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <!-- SEMANTIC CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css">
     <!-- MATERIALIZE CSS -->
@@ -15,7 +16,7 @@
 </head>
 <body>
   
-<div class="raised container" style="width: 20%;margin-top: 50px;">
+<div class="raised container" id="loginDiv">
     <h4 class="flow-text"><i class="info circle icon"></i> Signin</h4>
     {% csrf_token %}
     
