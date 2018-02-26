@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <link rel="shortcut icon" href="{% static 'tabico/icon_doc.ico' %}">
+    <style>
+        .label{
+            font-size: 12px;
+        }
+        thead > th{
+            font-size: 14px;
+            cursor: pointer;
+        }
+        #th{
+            cursor: pointer;
+        }
+        .circular.button:hover{
+            box-shadow: 5px 5px 5px #888888;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+
+    <title>JOB ORDER</title>
+</head>
+<body>
+        <div class="ui  menu">
+            <a id="menuBtn" class="item">
+                <i class="bars icon"></i> Menu
+            </a>
+            <div class="header item">
+                <a href="/"><i class="ui folder open icon"></i> JOB Orders</a> 
+            </div>
+            <a class="item" href="/megaa">
+                <i class="folder icon"></i>Mega A
+            </a>
+            <a class="item" href="/megab">
+                <i class="folder icon"></i>Mega B
+            </a>
+        </div>
+        <div class="ui sidebar inverted vertical  menu">
+            {% load staticfiles %}
+            <div class="ui card">
+                <a class="image" href="#">
+                    <img src="{% static 'images/user-icon.png' %}" class="ui image centered circular" style="margin-top: 20px;">
+                </a>
+                <div class="content">
+                    <a class="header" href="#">{{full_name}}</a>
+                    <div class="meta">
+                    <a>Loggedin</a>
+                    </div>
+                </div>
+            </div>
+            
+            <a class="item" href="/logout">
+                <i class="sign out alternate icon"></i>Logout?
+            </a>
+            <a class="item" href="/admin">
+                <i class="ui spy icon"></i>Admin
+            </a>
+        </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/sidebar.js"></script>
+<script>
+   $('#menuBtn').on('click',()=>{
+     $('.ui.sidebar').sidebar('toggle');
+   });
+
+   $('.item').on('blur','a.item',function(){
+        $(this).addClass('active');
+   });
+</script>

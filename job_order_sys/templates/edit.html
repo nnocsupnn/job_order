@@ -1,0 +1,139 @@
+{% include 'partials/header.html' %}
+{% csrf_token %}
+<div class="ui blue raised segment" style="margin: 40px;color: white;">
+        <h2 class="ui horizontal divider header">Details</h2>
+        <a href="/" class="ui circular facebook button"><i class="chevron left icon"></i></a>
+        <a href="/" class="ui circular positive button"><i class="save icon"></i> Save</a>
+        <br>
+        <h2>{{ request.session.user }}</h2>
+    <div class="ui form">
+    <h4 class="ui dividing header">Project Information</h4>
+    <div class="field">
+    <div class="two fields">
+    <div class="field">
+        <label>Date</label>
+        <input id="jodate" type="text" value="{{jos.jo_date}}" class="datepicker">
+    </div>
+    <div class="field">
+       
+    </div>
+    </div>
+    </div>
+
+   <div class="field">
+    <div class="two fields">
+    <div class="field">
+         <label>Jo No.</label>
+        <input type="text" value="{{jos.jo_no}}">
+    </div>
+    <div class="field">
+         <label>JO Code</label>
+        <input type="text" value="{{jos.jo_code}}">
+    </div>
+    </div>
+    </div>
+
+    <div class="field">
+    <div class="two fields">
+    <div class="field">
+         <label>Client</label>
+        <input type="text" value="{{jos.jo_clients}}">
+    </div>
+    <div class="field">
+        <label>QL / QN</label>
+        <input type="text" value="{{jos.jo_qlqnChoices}}">
+    </div>
+    </div>
+    </div>
+
+    <div class="field">
+    <div class="two fields">
+    <div class="field">
+        <label>Project No.</label>
+        <input id="projectno" type="text" value="{{jos.jo_project_no}}">
+    </div>
+    <div class="field">
+        <label>Contract Price</label>
+        <input id="contactprice" type="text" value="{{jos.jo_contact_price}}">
+    </div>
+    </div>
+    </div>
+
+    <div class="field">
+    <div class="two fields">
+    <div class="field">
+        <label>Terms</label>
+        <input type="text" value="{{jos.jo_terms}}">
+    </div>
+    <div class="field">
+        <label>VAT</label>
+        <input type="text" value="{{jos.jo_vat}}">
+    </div>
+    </div>
+    </div>
+
+    <div class="field">
+    <div class="two fields">
+    <div class="field">
+        <label>Sign Contract</label>
+        <input type="text" value="{{jos.jo_sign_contract}}">
+    </div>    
+    <div class="field">
+        <label>Invoice No.</label>
+        <input type="text" value="{{jos.jo_inv_no}}">
+    </div>
+    </div>
+    </div>
+
+    <div class="field">
+    <div class="two fields">
+    <div class="field">
+        <label>OR Date</label>
+        <input type="text" value="{{jos.jo_or_date}}">
+    </div>
+    <div class="field">
+        <label>Second Invoice</label>
+        <input type="text" value="{{jos.jo_second_inv}}">
+    </div>
+    </div>
+    </div>
+
+    <div class="field">
+    <div class="two fields">
+    <div class="field">
+        <label>Payment Date 1</label>
+        <input type="text" value="{{jos.jo_payment_date1}}">
+    </div>
+    <div class="field">
+        <label>Final Billing</label>
+        <input type="text" value="{{jos.jo_final_billing}}">
+     </div>
+    </div>
+    </div>
+
+    <div class="field">
+    <div class="two fields">
+    <div class="field">
+        <label>Payment Date 2</label>
+        <input type="text" value="{{jos.jo_payment_date2}}">
+    </div>
+    <div class="field">
+        <label>Remarks</label>
+        <textarea type="text" value="">{{jos.jo_remarks}}</textarea>
+    </div>
+    </div>
+    </div>
+    {% load staticfiles %}
+    <div class="field">
+    <div class="two fields">
+    <div class="field"></div>
+    <div class="field">
+    <div class="ui circular large facebook button" id="top" style="float: right;margin-top: 10px;">Back to Top</div>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+
+
+{% include 'partials/footer.html' %}

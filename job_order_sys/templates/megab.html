@@ -1,0 +1,199 @@
+{% include 'partials/header.html' %}
+{% load staticfiles %}
+
+<div class="" style="margin: 5px;margin-top:25px;">
+    <h1 class="ui horizontal divider header">
+    Mega B - Projects </h1><br>
+</div>
+
+
+
+<div class="ui raised horizontal segments">   
+        <button class="ui facebook icon button" id="btnProjects"><i class="bar chart icon"></i> Statistics</button> 
+<div class="ui  segment">
+    <center>
+    <div class="ui statistic" style="font-size: 12px;">
+    <div class="value">
+    {% load staticfiles %}
+
+    <div class="ui mini modal" id="modalCode">
+        <div class="header"><i class="bar chart icon"></i> Statistics</div>
+        <div class="content">
+        <div class="ui form">
+            <div class="field">
+            <h4 class="ui header">NO SIGN CONTRACT</h4>
+            {% for ncCode in sc_Code %}
+                <i class="caret right icon"></i> {{ncCode.jo_code}} <br>
+            {% endfor %}
+            </div>
+
+            <div class="field">
+            <h4 class="ui header">NO PO</h4>
+            {% for poCode in po_Code %}
+                <i class="caret right icon"></i> {{poCode.jo_code}} <br>
+            {% endfor %}
+            </div>
+
+            <div class="field" id="noCoc">
+            <h4 class="ui header">NO COC</h4>
+            </div>
+
+            <div class="field" id="dueDates">
+            
+            </div>
+        </div>
+        </div>
+        <div class="actions">
+        <div class="ui vk cancel button">Close</div>
+        </div>
+    </div>
+
+    <img src="{% static 'tabico/icon3.png' %}" class="ui inline image">
+        {{count}}
+    </div>
+    <div class="label">
+       Projects
+    </div>
+    </div>
+    </center>
+    </div>
+
+<div class="ui segment">
+    <center>
+    <div class="ui statistic" style="font-size: 12px;">
+    <div class="value" style="color:red">
+            {{nc}}
+    </div>
+    <div class="label">
+            NO SIGNED CONTRACT
+    </div>
+    </div>
+</center>
+</div>
+
+
+
+<div class="ui segment">
+    <center>
+    <div class="ui statistic" style="font-size: 12px;">
+    <div class="value" style="color:red">
+            {{nopo}}
+    </div>
+    <div class="label">
+    WITHOUT PO
+    </div>
+    </div>
+</center>
+</div>
+
+
+<div class="ui segment">
+    <center>
+    <div class="ui statistic" style="font-size: 12px;">
+    <div class="value" style="color:red" id="withoutcoc">
+
+    </div>
+    <div class="label">
+            WITHout COC
+    </div>
+    </div>
+</center>
+</div>
+
+
+<div class="ui segment">
+<center>
+<div class="ui statistic" style="font-size: 12px;">
+<div class="value" style="color: red" id="pcrr">
+    
+</div>
+<div class="label">
+    w/o PCR
+</div>
+</div>
+</center>
+</div>
+
+
+
+</div>
+    <table class="ui blue celled selectable table" style="font-size: 12px;text-align: center;" id="dataTable">
+        <thead>
+        <tr>
+            <th id="th">ID</th>
+            <th id="th">Date</th>
+            <th id="th" data-tooltip="Signed Contract" data-inverted>SC</th>
+            <th id="th" data-tooltip="Purchase Order" data-inverted>PO</th>
+            <th id="th" data-tooltip="Certificate of Conformity" data-inverted>COC</th>
+            <th id="th" data-tooltip="PCR" data-inverted>PCR</th>
+
+            <th id="th" class="joCodee">JO Code</th>
+            <th id="th">Client</th>
+            <th id="th">QL/QN</th>
+            <th id="th">Project No.</th>
+            <th id="th">Contract Price</th>
+            <th id="th">Terms (Due)</th>
+            <th id="th">Vat</th>
+            <th id="th">Addendum</th>
+            <th id="th">Final Billing</th>
+            
+        </tr>
+    </thead>
+        <tbody>
+        {% for jos in jo %}
+        <tr id="dataa">
+            <td><a href="project/{{jos.id}}" class="ui circular animated fade vk button"><div class="visible content">{{jos.jo_code}}</div><div class="hidden content">
+                    View
+                  </div></a></td>
+            <td id="startDate">{{jos.jo_date}}</td>
+            <td hidden id="legend" style="color:white;"><input type="hidden" id="sign_contract" value={{jos.jo_sign_contract}}><input type="hidden"  id="po" value={{jos.jo_po_no}}><input type="hidden" value={{jos.jo_coc}} id="co"><input type="hidden"  id="pcrrrr" value={{jos.jo_pcr}}>
+            </td>
+            <td id="sccc"></td>
+            <td id="pop"></td>
+            <td id="coccc"></td>
+            <td id="pccrrrrr"></td>
+            <td id="cocCode">{{jos.jo_code}}</td>
+            <td>{{jos.jo_clients}}</td>
+            <td>{{jos.jo_qlqnChoices}}</td>
+            <td>{{jos.jo_project_no}}</td>
+            <td class="money" style="font-weight:bolder;font-family: courier new;">{{jos.jo_contact_price}}</td>
+            <td id="terms">{{jos.jo_terms}} days</td>
+            <td>{{jos.jo_vat}}</td>
+            <td>{{jos.jo_addendum}}</td>
+            <td>{{jos.jo_final_billing}}</td>  
+        </tr>
+        {% endfor %}
+    </tbody>
+        </table>
+</div>
+
+<script
+src="https://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous"></script>
+{% load staticfiles %}
+<script src={% static '/js/index.js' %}></script>
+<script src={% static '/js/tablesorter.js' %}></script>
+<script src={% static '/js/moneyformater.js' %}></script>
+<script src={% static '/js/terms.js' %}></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.js"></script>
+
+<script>
+    $('#btnProjects').on('click',()=>{
+        $('#modalCode').modal('show');
+    });
+        $('.money').simpleMoneyFormat();
+        $(document).ready(function() 
+        { 
+            $("#dataTable").tablesorter(); 
+        } 
+    ); 
+
+    $(document).ready(function() 
+    { 
+        $("#dataTable").tablesorter( {sortList: [[0,0], [1,0]]} ); 
+    } 
+); 
+    
+</script>
+{% include 'partials/footer.html' %}

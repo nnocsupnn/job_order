@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{% static 'tabico/icon_doc.ico' %}">
+    <!-- SEMANTIC CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css">
+    <!-- MATERIALIZE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <title>Login - JOB ORDER</title>
+</head>
+<body>
+  
+<div class="raised container" style="width: 20%;margin-top: 50px;">
+    <h4 class="flow-text"><i class="info circle icon"></i> Signin</h4>
+    {% csrf_token %}
+    
+    <div class="input-field" style="margin-top: 20px;">
+        <input name="username" id="username" type="text" class="validate">
+        <label for="username"><i class="user icon"></i>Email or Username</label>
+    </div>
+    <div class="input-field">
+        <input name="password" id="password" type="password" class="validate">
+        <label for="password"><i class="eye icon"></i> Password</label>
+    </div>
+    <button style="width: 100%;" class="btn waves-effect waves-light z-depth-4" type="submit" id="btnLogin">Confirm</button>
+    <br>
+    <a href="/admin" data-tooltip="Login as SuperUser" data-inverted style="float: right;margin-top: 10px;">Admin?</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+    $(document).ready(function() {
+            Materialize.updateTextFields();
+    });
+    
+    $('#btnLogin').on('click',function(){
+        var username = $('#username').val();
+        var password = $('#password').val();
+        $.ajax({
+            type: 'POST',
+            data: {
+                username:username,
+                password:password
+            },
+            url: '/authenticate',
+            success:(res)=>{
+                if(res == "/megaa" || res == "/"){
+                    window.location.href=res;
+                }
+                else{
+                    Materialize.toast(res, 3000);
+                }
+            }
+        });
+    });
+
+    
+    
+</script>
+{% include 'partials/footer.html' %}

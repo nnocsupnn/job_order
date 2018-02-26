@@ -1,0 +1,31 @@
+{% extends "admin/base.html" %}
+
+{% block extrastyle %}
+{% load staticfiles %}
+<link rel="shortcut icon" href="{% static 'tabico/icon_doc.ico' %}">
+<style>
+    #header {
+        background-color: #3d69ff;
+        color: white;
+    }
+    #site-name {
+        background-color: #3d69ff;
+    }
+    #site-name > a {
+        color: white;
+    }
+
+    #submit-row > input{
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+<title>{% block title %}
+   Project Administration
+{% endblock %}</title>
+
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Project Administration</a></h1>
+{% endblock %}
