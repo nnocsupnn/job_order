@@ -1,5 +1,6 @@
 {% include 'partials/header.html' %}
 {% load staticfiles %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
 
 <div class="" style="margin: 5px;margin-top:25px;">
     <h1 class="ui horizontal divider header">
@@ -117,26 +118,30 @@
 
 
 </div>
-    <table class="ui blue celled selectable table" style="font-size: 12px;text-align: center;" id="dataTable">
+    <table class="ui blue celled structured selectable table" style="font-size: 12px;text-align: center;" id="dataTable">
         <thead>
         <tr>
-            <th id="th">ID</th>
-            <th id="th">Date</th>
-            <th id="th" data-tooltip="Signed Contract" data-inverted>SC</th>
-            <th id="th" data-tooltip="Purchase Order" data-inverted>PO</th>
-            <th id="th" data-tooltip="Certificate of Conformity" data-inverted>COC</th>
-            <th id="th" data-tooltip="PCR" data-inverted>PCR</th>
+            <th rowspan="2" id="th" style="font-size: 20px;">Project Code</th>
+            <th rowspan="2" id="th">Date</th>
+            <th rowspan="2" id="th" data-tooltip="Signed Contract" data-inverted>SC</th>
+            <th rowspan="2" id="th" data-tooltip="Purchase Order" data-inverted>PO</th>
+            <th rowspan="2" id="th" data-tooltip="Certificate of Conformity" data-inverted>COC</th>
+            <th rowspan="2" id="th" data-tooltip="PCR" data-inverted>PCR</th>
 
-            <th id="th" class="joCodee">JO Code</th>
-            <th id="th">Client</th>
-            <th id="th">QL/QN</th>
-            <th id="th">Project No.</th>
-            <th id="th">Contract Price</th>
-            <th id="th">Terms (Due)</th>
-            <th id="th">Vat</th>
-            <th id="th">Addendum</th>
-            <th id="th">Final Billing</th>
-            
+            <th rowspan="2" id="th" class="joCodee">JO Code</th>
+            <th rowspan="2" id="th">Client</th>
+            <th rowspan="2" id="th">QL/QN</th>
+            <th rowspan="2" id="th">Project No.</th>
+            <th rowspan="2" id="th">Contract Price</th>
+            <th rowspan="2" id="th">Terms (Due)</th>
+
+            <th rowspan="2" id="th">Addendum</th>
+            <th colspan="2" id="th">Initial Billing</th>
+            <th rowspan="2" id="th">Final Billing</th>  
+        </tr>
+        <tr>
+            <th id="th">Date</th>
+            <th id="th">Invoice No.</th>
         </tr>
     </thead>
         <tbody>
@@ -158,9 +163,10 @@
             <td>{{jos.jo_project_no}}</td>
             <td class="money" style="font-weight:bolder;font-family: courier new;">{{jos.jo_contact_price}}</td>
             <td id="terms">{{jos.jo_terms}} days</td>
-            <td>{{jos.jo_vat}}</td>
             <td>{{jos.jo_addendum}}</td>
-            <td>{{jos.jo_final_billing}}</td>  
+            <td>{{jos.jo_or_date}}</td>  
+            <td>{{jos.jo_inv_no}}</td>  
+            <td>{{jos.jo_final_billing}}</td> 
         </tr>
         {% endfor %}
     </tbody>

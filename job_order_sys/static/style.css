@@ -8,6 +8,7 @@ div#detailss {
     color: white;
 }
 
+
 @media only screen and (max-width: 480px) {
     div#loginDiv {
         width: 50%;

@@ -19,6 +19,7 @@ def loggedin_page(request):
     username = request.POST.get('username','')
     password = request.POST.get('password','')
     user = authenticate(username=username,password=password)
+    print("Username: " + username + "\n Password:"+password)
     if user is not None:
         login(request,user)
         return HttpResponse('/megaa')

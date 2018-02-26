@@ -7,7 +7,7 @@ var pcr = 0;
 $('#dataTable tr td#legend').each(function(){
     var scnc = $(this).closest('tr').find('#sign_contract').val();
     if(scnc == 'nc'){
-
+         
         $(this).closest('tr').find('#sccc').html('<i class="large red remove icon"></i>');
     }
     else if(scnc == 'sc'){
