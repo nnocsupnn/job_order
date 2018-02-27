@@ -4,9 +4,8 @@
 
 <div class="" style="margin: 5px;margin-top:25px;">
     <h1 class="ui horizontal divider header">
-    Mega A - Projects </h1><br>
+    Mega B - Projects </h1><br>
 </div>
-
 
 
 <div class="ui raised horizontal segments" id="segments">   
@@ -39,7 +38,7 @@
             <h4 class="ui header">NO COC</h4>
             </div>
 
-            <div class="field" id="dueDates">
+            <div class="field" id="daysDelayed">
             
             </div>
         </div>
@@ -133,7 +132,7 @@
             <th rowspan="2" id="th">QL/QN</th>
             <th rowspan="2" id="th">Project No.</th>
             <th rowspan="2" id="th">Contract Price</th>
-            <th rowspan="2" id="th">Terms (Due)</th>
+            <th rowspan="2" id="th">Terms (Due/Delayed)</th>
 
             <th rowspan="2" id="th">Addendum</th>
             <th colspan="2" id="th">Initial Billing</th>
@@ -147,10 +146,10 @@
         <tbody>
         {% for jos in jo %}
         <tr id="dataa">
-            <td><a href="project/{{jos.id}}" class="ui circular animated fade vk button" style="width: 100%;"><div class="visible content">{{jos.jo_code}}</div><div class="hidden content">
+            <td><a href="project/{{jos.id}}" id="idCode" class="ui circular animated fade vk button" style="width: 100%;"><div id="jo_Code" class="visible content">{{jos.jo_code}}</div><div class="hidden content">
                     View
                   </div></a></td>
-            <td id="startDate">{{jos.jo_date}}</td>
+            <td>{{jos.jo_date}}</td>
             <td hidden id="legend" style="color:white;"><input type="hidden" id="sign_contract" value={{jos.jo_sign_contract}}><input type="hidden"  id="po" value={{jos.jo_po_no}}><input type="hidden" value={{jos.jo_coc}} id="co"><input type="hidden"  id="pcrrrr" value={{jos.jo_pcr}}>
             </td>
             <td id="sccc"></td>
@@ -164,7 +163,7 @@
             <td class="money" style="font-weight:bolder;font-family: courier new;">{{jos.jo_contact_price}}</td>
             <td id="terms">{{jos.jo_terms}} days</td>
             <td>{{jos.jo_addendum}}</td>
-            <td>{{jos.jo_or_date}}</td>  
+            <td id="startDate">{{jos.jo_or_date}}</td>  
             <td>{{jos.jo_inv_no}}</td>  
             <td>{{jos.jo_final_billing}}</td> 
         </tr>
@@ -181,10 +180,14 @@ crossorigin="anonymous"></script>
 <script src={% static '/js/index.js' %}></script>
 <script src={% static '/js/tablesorter.js' %}></script>
 <script src={% static '/js/moneyformater.js' %}></script>
+<script src={% static '/js/moment.js' %}></script>
 <script src={% static '/js/terms.js' %}></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.js"></script>
 
 <script>
+    let val = $('#jo_Code').val();
+    let uppper = toUpperCase(val);
+    $('#jo_Code').val(uppper);
     if(window.screen.availWidth < 800){
         $('#segments').removeClass('horizontal');
         $('#segments').addClass('vertical');

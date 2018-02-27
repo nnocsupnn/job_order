@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpRequest
 from django.contrib import auth, messages
 from django.contrib.auth import login, logout, authenticate
 from .models import MegaA, MegaB, AllowedUsersA, AllowedUsersB, Comments
@@ -19,7 +19,9 @@ def loggedin_page(request):
     username = request.POST.get('username','')
     password = request.POST.get('password','')
     user = authenticate(username=username,password=password)
-    print("Username: " + username + "\n Password:"+password)
+    print("\n--------------------LOGIN---------------------")
+    print("--> IP: "+request.get_host())
+    print("--> Username: " + username + "\n--> Password:"+password+"\n")
     if user is not None:
         login(request,user)
         return HttpResponse('/megaa')
@@ -32,6 +34,8 @@ def logout_page(request):
 
 #index view and render
 def index_a(request):
+    print("\n------------- Accessing index-MEGA-A-----------------")
+    print("--> user: "+request.user.get_username())
     legend_one = MegaA.objects.filter(jo_sign_contract='nc').count()
     JoCodenc = MegaA.objects.filter(jo_sign_contract='nc')
     JoCodepo = MegaA.objects.filter(jo_po_no='0')
@@ -62,6 +66,8 @@ def index_a(request):
         return login_page(request)
 
 def index_b(request):
+    print("\n------------- Accessing index-MEGA-B-----------------")
+    print("--> user: "+request.user.get_username())
     legend_one = MegaB.objects.filter(jo_sign_contract='nc').count()
     JoCodenc = MegaB.objects.filter(jo_sign_contract='nc')
     JoCodepo = MegaB.objects.filter(jo_po_no='0')
@@ -95,6 +101,8 @@ def index_b(request):
 
 #details view and render html views
 def details_a(request, id):
+    print("\n------------- Viewing "+ id +" -----------------")
+    print("--> user: "+request.user.get_username())
     jo = MegaA.objects.get(id=id)
     comments = Comments.objects.filter(comment_id=id,comment_dept='megaa')
     dept = {
@@ -106,8 +114,11 @@ def details_a(request, id):
         'name':request.user.get_full_name(),
         'dept':dept
     })
+    
 
 def details_b(request, id):
+    print("\n------------- Viewing "+ id +" -----------------")
+    print("--> user: "+request.user.get_username())
     jo = MegaB.objects.get(id=id)
     comments = Comments.objects.filter(comment_id=id,comment_dept='megab')
     dept = {
@@ -119,6 +130,7 @@ def details_b(request, id):
         'name':request.user.get_full_name(),
         'dept':dept
     })
+    
     
 #add comment function from ajax
 def addcomment(request, id):
