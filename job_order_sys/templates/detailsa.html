@@ -82,7 +82,7 @@
     <div class="two fields">
     <div class="field">
         <label>Terms</label>
-        <input type="text" value="{{jos.jo_terms}}">
+        <input type="text" value="{{jos.jo_terms}} days">
     </div>
     <div class="field">
         <label>VAT</label>
@@ -94,12 +94,29 @@
     <div class="field">
     <div class="two fields">
     <div class="field">
+        <label id="">PO No.</label>
+        <input id="" type="text" value="{{jos.jo_po_no}}">
+        
+    </div>    
+    <div class="field">
+        
         <label id="scLabel">Sign Contract</label>
         <input id="SignContractStatus" type="text" value="{{jos.jo_sign_contract}}">
-    </div>    
+    </div>
+    </div>
+    </div>
+
+    <div class="field">
+    <div class="two fields">
     <div class="field">
         <label>Invoice No.</label>
         <input type="text" value="{{jos.jo_inv_no}}">
+        
+    </div>
+    <div class="field">
+        <label>OR No.</label>
+        <input type="text" value="{{jos.jo_or}}">
+       
     </div>
     </div>
     </div>
@@ -107,25 +124,14 @@
     <div class="field">
     <div class="two fields">
     <div class="field">
-        <label>OR Date</label>
-        <input type="text" value="{{jos.jo_or_date}}">
+            <label>OR Date</label>
+            <input type="text" value="{{jos.jo_or_date}}">
+            
     </div>
     <div class="field">
-        <label>Second Invoice</label>
-        <input type="text" value="{{jos.jo_second_inv}}">
-    </div>
-    </div>
-    </div>
-
-    <div class="field">
-    <div class="two fields">
-    <div class="field">
-        <label>Payment Date 1</label>
-        <input type="text" value="{{jos.jo_payment_date1}}">
-    </div>
-    <div class="field">
-        <label>Addendum</label>
-        <input type="text" value="{{jos.jo_addendum}}">
+            <label>Second Invoice</label>
+            <input type="text" value="{{jos.jo_second_inv}}">
+       
      </div>
     </div>
     </div>
@@ -133,26 +139,39 @@
     <div class="field">
     <div class="two fields">
     <div class="field">
-        <label>Final Billing</label>
-        <input type="text" value="{{jos.jo_addendum}}">
+        
+            <label>Payment Date 1</label>
+            <input type="text" value="{{jos.jo_payment_date1}}">
+       
+           
     </div>
     <div class="field">
-        <label>Payment Date 2</label>
-        <input type="text" value="{{jos.jo_payment_date2}}">
+            <label>Addendum</label>
+            <input type="text" value="{{jos.jo_addendum}}">
+        
     </div>
     </div>
     </div>
     <div class="field">
     <div class="two fields">
     <div class="field">
-        <label>Remarks</label>
-        <textarea type="text" value="">{{jos.jo_remarks}}</textarea>
+        
+            <label>Final Billing</label>
+            <input type="text" value="{{jos.jo_addendum}}">
+  
     </div>
     <div class="field">
-        
+            <label>Payment Date 2</label>
+            <input type="text" value="{{jos.jo_payment_date2}}">
     </div>
     </div>
+
+    
+            <label>Remarks</label>
+            <textarea type="text" value="">{{jos.jo_remarks}}</textarea>
+  
     </div>
+    
     
     {% load staticfiles %}
     <div class="ui black raised segment">

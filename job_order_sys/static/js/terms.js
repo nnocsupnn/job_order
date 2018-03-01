@@ -21,11 +21,10 @@ $('#dataTable tr#dataa').each(function(){
     //if duedate exceeds the date due it will count the due diff and notify you in the page
     if(diff < 0){
         diff = Math.abs(diff);
-        $(this).closest('tr').find('#terms').addClass('error');
+        $(this).closest('tr').find('#invoiceNo').addClass('error');
         $(this).closest('tr').find('#idCode').removeClass('vk').addClass('youtube');
-        $(this).closest('tr').find('#terms').append("<br><i class=\"attention icon\"></i><i style=\"color: red;\">days delayed : <strong style=\"color:black;\">"+diff+"</strong></i>");
+        $(this).closest('tr').find('#invoiceNo').append("<br><i class=\"attention icon\"></i><i style=\"color: red;\">"+diff+" day(s) delayed.</strong></i>");
         var codee = $(this).find('#cocCode').text();
-        console.log(codee);
         $('#daysDelayed').append('<br><i class="caret right icon"></i>'+codee+'<br><i style="padding-left: 20px;color: red;">'+diff+" days delayed</i>");
     }
     //set jo code set to upper case

@@ -19,15 +19,20 @@ $('#dataTable tr td#legend').each(function(){
 //po status color coding
 $('#dataTable tr td#legend').each(function(){
     var popo = $(this).closest('tr').find('#po').val();
-    
+    console.log(popo);
     if(popo == '0'){
         $(this).closest('tr').find('#pop').html('<i class="large red remove icon"></i>');
+    }
+    else if(popo == 'n/a' || popo == 'na'){
+        $(this).closest('tr').find('#pop').html('<i style="font-weight:bold;font-size: 16px;">n/a</i>');
+        i++;
     }
     else {
 
         $(this).closest('tr').find('#pop').html('<i class="large green checkmark icon"></i>');
         i++;
     } 
+   
 });
 
 //coc status color coding

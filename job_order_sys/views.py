@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, HttpRequest
-from django.contrib import auth, messages
+from django.contrib import auth
+from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from .models import MegaA, MegaB, AllowedUsersA, AllowedUsersB, Comments
 from datetime import datetime, timedelta
@@ -49,6 +50,7 @@ def index_a(request):
         name = request.user.get_username()
         megaa = AllowedUsersA.objects.filter(user_fullname=name).count()
         if megaa == 1:
+            
             return render(request,'megaa.html',{
                 'jo':jos,
                 'nc':legend_one,
@@ -61,6 +63,7 @@ def index_a(request):
                 'full_name': request.user.get_full_name()
             })
         else:
+            messages.error(request, 'Youre not allowed to Mega A.')
             return index_b(request)
     else:
         return login_page(request)
@@ -93,7 +96,7 @@ def index_b(request):
                 'full_name': request.user.get_full_name()
             })
         else:
-            messages
+            messages.error(request, 'Youre not allowed to Mega B.')
             return index_a(request)
     else:
         return login_page(request)

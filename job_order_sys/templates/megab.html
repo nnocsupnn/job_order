@@ -7,6 +7,16 @@
     Mega B - Projects </h1><br>
 </div>
 
+{% if messages %}
+    {% for message in messages %}
+        <div {% if message.tags %} class="ui {{ message.tags }} message" {% endif %} style="margin: 15px;">
+            <div class="header">
+            Notice!
+            </div>
+            {{ message }}
+        </div>
+      {% endfor %}
+{% endif %}
 
 <div class="ui raised horizontal segments" id="segments">   
         <button class="ui facebook icon button" id="btnProjects"><i class="bar chart icon"></i> Statistics</button> 
@@ -39,7 +49,7 @@
             </div>
 
             <div class="field" id="daysDelayed">
-            
+                <h4 class="ui header">Delayed Due's</h4>
             </div>
         </div>
         </div>
@@ -127,7 +137,7 @@
             <th rowspan="2" id="th" data-tooltip="Certificate of Conformity" data-inverted>COC</th>
             <th rowspan="2" id="th" data-tooltip="PCR" data-inverted>PCR</th>
 
-            <th rowspan="2" id="th" class="joCodee">JO Code</th>
+            <th rowspan="2" id="th" class="joCodee" id="joCodee">JO Code</th>
             <th rowspan="2" id="th">Client</th>
             <th rowspan="2" id="th">QL/QN</th>
             <th rowspan="2" id="th">Project No.</th>
@@ -164,7 +174,7 @@
             <td id="terms">{{jos.jo_terms}} days</td>
             <td>{{jos.jo_addendum}}</td>
             <td id="startDate">{{jos.jo_or_date}}</td>  
-            <td>{{jos.jo_inv_no}}</td>  
+            <td id="invoiceNo">{{jos.jo_inv_no}}</td>  
             <td>{{jos.jo_final_billing}}</td> 
         </tr>
         {% endfor %}
@@ -185,9 +195,7 @@ crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.js"></script>
 
 <script>
-    let val = $('#jo_Code').val();
-    let uppper = toUpperCase(val);
-    $('#jo_Code').val(uppper);
+    $('.ui.message').delay(3000).hide(300);
     if(window.screen.availWidth < 800){
         $('#segments').removeClass('horizontal');
         $('#segments').addClass('vertical');

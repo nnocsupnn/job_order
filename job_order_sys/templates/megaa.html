@@ -8,6 +8,18 @@
 </div>
 
 
+
+{% if messages %}
+    {% for message in messages %}
+        <div {% if message.tags %} class="ui {{ message.tags }} message" {% endif %} style="margin: 15px;">
+            <div class="header">
+            Notice!
+            </div>
+            {{ message }}
+        </div>
+      {% endfor %}
+{% endif %}
+
 <div class="ui raised horizontal segments" id="segments">   
         <button class="ui facebook icon button" id="btnProjects"><i class="bar chart icon"></i> Statistics</button> 
 <div class="ui  segment">
@@ -164,7 +176,7 @@
             <td id="terms">{{jos.jo_terms}} days</td>
             <td>{{jos.jo_addendum}}</td>
             <td id="startDate">{{jos.jo_or_date}}</td>  
-            <td>{{jos.jo_inv_no}}</td>  
+            <td id="invoiceNo">{{jos.jo_inv_no}}</td>  
             <td>{{jos.jo_final_billing}}</td> 
         </tr>
         {% endfor %}
@@ -185,6 +197,7 @@ crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.js"></script>
 
 <script>
+    $('.ui.message').delay(3000).hide(300);
     
     if(window.screen.availWidth < 800){
         $('#segments').removeClass('horizontal');
