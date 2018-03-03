@@ -9,6 +9,7 @@
 
 
 
+
 {% if messages %}
     {% for message in messages %}
         <div {% if message.tags %} class="ui {{ message.tags }} message" {% endif %} style="margin: 15px;">
@@ -59,9 +60,8 @@
         <div class="ui vk cancel button">Close</div>
         </div>
     </div>
-
-    <img src="{% static 'tabico/icon3.png' %}" class="ui inline image">
         {{count}}
+        <i class="folder open small blue icon"></i>
     </div>
     <div class="label">
        Projects
@@ -82,8 +82,6 @@
     </div>
 </center>
 </div>
-
-
 
 <div class="ui segment">
     <center>
@@ -120,7 +118,7 @@
     
 </div>
 <div class="label">
-    w/o PCR
+        WITHout PCR
 </div>
 </div>
 </center>
@@ -129,14 +127,14 @@
 
 
 </div>
-    <table class="ui blue celled structured selectable table" style="font-size: 12px;text-align: center;" id="dataTable">
+    <table class="ui celled structured selectable table" style="font-size: 12px;text-align: center;" id="dataTable">
         <thead>
         <tr>
             <th rowspan="2" id="th" style="font-size: 20px;">Project Code</th>
             <th rowspan="2" id="th">Date</th>
             <th rowspan="2" id="th" data-tooltip="Signed Contract" data-inverted>SC</th>
             <th rowspan="2" id="th" data-tooltip="Purchase Order" data-inverted>PO</th>
-            <th rowspan="2" id="th" data-tooltip="Certificate of Conformity" data-inverted>COC</th>
+            <th rowspan="2" id="th" data-tooltip="Certificate of Completion" data-inverted>COC</th>
             <th rowspan="2" id="th" data-tooltip="PCR" data-inverted>PCR</th>
 
             <th rowspan="2" id="th" class="joCodee" id="joCodee">JO Code</th>
@@ -159,7 +157,7 @@
         {% for jos in jo %}
         <tr id="dataa">
             <td><a href="project/{{jos.id}}" id="idCode" class="ui circular animated fade vk button" style="width: 100%;"><div id="jo_Code" class="visible content">{{jos.jo_code}}</div><div class="hidden content">
-                    View
+                    View Details
                   </div></a></td>
             <td>{{jos.jo_date}}</td>
             <td hidden id="legend" style="color:white;"><input type="hidden" id="sign_contract" value={{jos.jo_sign_contract}}><input type="hidden"  id="po" value={{jos.jo_po_no}}><input type="hidden" value={{jos.jo_coc}} id="co"><input type="hidden"  id="pcrrrr" value={{jos.jo_pcr}}>

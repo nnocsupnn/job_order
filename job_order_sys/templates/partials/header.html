@@ -26,7 +26,7 @@
     <title>JOB ORDER</title>
 </head>
 <body>
-        <div class="ui  menu">
+        <div class="ui menu">
             <a id="menuBtn" class="item">
                 <i class="bars icon"></i> Menu
             </a>
@@ -39,12 +39,19 @@
             <a class="item" href="/megab">
                 <i class="folder icon"></i>Mega B
             </a>
+            
+            <div class="right menu">
+                <a class="item" id="onlineUser"><i class="circle green icon"></i> Online</a>
+                    <a class="item" href="/logout">
+                        <i class="sign out alternate red icon"></i>Logout?
+                    </a>
+            </div>
         </div>
-        <div class="ui sidebar inverted vertical  menu">
+        <div class="ui icon sidebar inverted vertical  menu">
             {% load staticfiles %}
             <div class="ui card">
                 <a class="image" href="#">
-                    <img src="{% static 'images/user-icon.png' %}" class="ui image centered circular" style="margin-top: 20px;">
+                    <img src="{% static 'images/user-icon.png' %}" class="ui image centered" style="margin: 0px;">
                 </a>
                 <div class="content">
                     <a class="header" href="#">{{full_name}}</a>
@@ -54,15 +61,32 @@
                 </div>
             </div>
             
-            <a class="item" href="/logout">
-                <i class="sign out alternate icon"></i>Logout?
-            </a>
+            
             <a class="item" href="/admin">
                 <i class="ui spy icon"></i>Admin
             </a>
         </div>
+
+
+
+        <div class="ui mini modal" id="modalOnline">
+                <div class="header"><i class="bar chart icon"></i> Online Users</div>
+                <div class="content">
+                        {% for userr in online_user %}
+                            <label><i class="circle green icon"></i>{{userr}}<br></label>
+                        {% endfor %}
+                </div>
+                <div class="actions">
+                <div class="ui vk cancel button">Close</div>
+                </div>
+            </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/sidebar.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.js"></script>
 <script>
+        $('#onlineUser').on('click',()=>{
+            $('#modalOnline').modal('show');
+        });
    $('#menuBtn').on('click',()=>{
      $('.ui.sidebar').sidebar('toggle');
    });

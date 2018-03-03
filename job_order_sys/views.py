@@ -5,8 +5,8 @@ from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from .models import MegaA, MegaB, AllowedUsersA, AllowedUsersB, Comments
 from datetime import datetime, timedelta
-
-
+from loggedusers import get_all_logged_in_users
+import sys
 
 # Create your views here.
 def login_page(request):
@@ -36,7 +36,9 @@ def logout_page(request):
 #index view and render
 def index_a(request):
     print("\n------------- Accessing index-MEGA-A-----------------")
-    print("--> user: "+request.user.get_username())
+    print("--> user: "+request.user.get_full_name())
+    print("--> IP: "+request.get_host())
+    online_user = get_all_logged_in_users()
     legend_one = MegaA.objects.filter(jo_sign_contract='nc').count()
     JoCodenc = MegaA.objects.filter(jo_sign_contract='nc')
     JoCodepo = MegaA.objects.filter(jo_po_no='0')
@@ -60,17 +62,21 @@ def index_a(request):
                 'count':count,
                 'sc_Code':JoCodenc,
                 'po_Code':JoCodepo,
-                'full_name': request.user.get_full_name()
+                'full_name': request.user.get_full_name(),
+                'online_user':online_user
             })
         else:
             messages.error(request, 'Youre not allowed to Mega A.')
-            return index_b(request)
+            return HttpResponseRedirect('/megab')
     else:
         return login_page(request)
 
 def index_b(request):
+    online_user = get_all_logged_in_users()
+    print(online_user)
     print("\n------------- Accessing index-MEGA-B-----------------")
-    print("--> user: "+request.user.get_username())
+    print("--> user: "+request.user.get_full_name())
+    print("--> IP: "+request.get_host())
     legend_one = MegaB.objects.filter(jo_sign_contract='nc').count()
     JoCodenc = MegaB.objects.filter(jo_sign_contract='nc')
     JoCodepo = MegaB.objects.filter(jo_po_no='0')
@@ -93,11 +99,12 @@ def index_b(request):
                 'count':count,
                 'sc_Code':JoCodenc,
                 'po_Code':JoCodepo,
-                'full_name': request.user.get_full_name()
+                'full_name': request.user.get_full_name(),
+                'online_user':online_user
             })
         else:
             messages.error(request, 'Youre not allowed to Mega B.')
-            return index_a(request)
+            return HttpResponseRedirect('/megaa')
     else:
         return login_page(request)
     

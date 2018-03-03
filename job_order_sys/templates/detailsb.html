@@ -20,7 +20,7 @@
 
 {% csrf_token %}
 <div class="ui blue raised segment" id="detailss" style="">
-        <h2 class="ui horizontal divider header">Details</h2>
+        <h2 class="ui horizontal divider header">{{jos.jo_code}}</h2>
         <a href="/megaa" class="ui circular facebook button"><i class="chevron left icon"></i></a>
         <br>
         <h2>{{ request.session.user }}</h2>

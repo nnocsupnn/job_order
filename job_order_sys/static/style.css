@@ -9,7 +9,8 @@ div#detailss {
 }
 
 
-@media only screen and (max-width: 480px) {
+
+@media only screen and (max-width: 800px) {
     div#loginDiv {
         width: 50%;
     }

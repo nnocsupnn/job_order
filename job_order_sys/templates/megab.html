@@ -58,8 +58,8 @@
         </div>
     </div>
 
-    <img src="{% static 'tabico/icon3.png' %}" class="ui inline image">
-        {{count}}
+    {{count}}
+        <i class="folder open small blue icon"></i>
     </div>
     <div class="label">
        Projects
@@ -118,7 +118,7 @@
     
 </div>
 <div class="label">
-    w/o PCR
+        WITHout PCR
 </div>
 </div>
 </center>
@@ -134,7 +134,7 @@
             <th rowspan="2" id="th">Date</th>
             <th rowspan="2" id="th" data-tooltip="Signed Contract" data-inverted>SC</th>
             <th rowspan="2" id="th" data-tooltip="Purchase Order" data-inverted>PO</th>
-            <th rowspan="2" id="th" data-tooltip="Certificate of Conformity" data-inverted>COC</th>
+            <th rowspan="2" id="th" data-tooltip="Certificate of Completion" data-inverted>COC</th>
             <th rowspan="2" id="th" data-tooltip="PCR" data-inverted>PCR</th>
 
             <th rowspan="2" id="th" class="joCodee" id="joCodee">JO Code</th>
@@ -157,7 +157,7 @@
         {% for jos in jo %}
         <tr id="dataa">
             <td><a href="project/{{jos.id}}" id="idCode" class="ui circular animated fade vk button" style="width: 100%;"><div id="jo_Code" class="visible content">{{jos.jo_code}}</div><div class="hidden content">
-                    View
+                    View Details
                   </div></a></td>
             <td>{{jos.jo_date}}</td>
             <td hidden id="legend" style="color:white;"><input type="hidden" id="sign_contract" value={{jos.jo_sign_contract}}><input type="hidden"  id="po" value={{jos.jo_po_no}}><input type="hidden" value={{jos.jo_coc}} id="co"><input type="hidden"  id="pcrrrr" value={{jos.jo_pcr}}>
