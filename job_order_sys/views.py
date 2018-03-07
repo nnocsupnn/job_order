@@ -47,7 +47,6 @@ def index_a(request):
     legend_six = MegaA.objects.filter(jo_coc='coc').count()
     count = MegaA.objects.all().count()
     jos = MegaA.objects.all()
-    
     if request.user.is_authenticated:
         name = request.user.get_username()
         megaa = AllowedUsersA.objects.filter(user_fullname=name).count()

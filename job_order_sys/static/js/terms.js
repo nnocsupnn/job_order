@@ -21,7 +21,7 @@ $('#dataTable tr#dataa').each(function(){
     //if duedate exceeds the date due it will count the due diff and notify you in the page
     if(diff < 0){
         diff = Math.abs(diff);
-        $(this).closest('tr').find('#invoiceNo').addClass('error');
+        $(this).closest('tr').find('#dataa').addClass('error');
         $(this).closest('tr').find('#idCode').removeClass('vk').addClass('youtube');
         $(this).closest('tr').find('#invoiceNo').append("<br><i class=\"attention icon\"></i><i style=\"color: red;\">"+diff+" day(s) delayed.</strong></i>");
         var codee = $(this).find('#cocCode').text();

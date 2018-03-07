@@ -160,7 +160,7 @@
                     View Details
                   </div></a></td>
             <td>{{jos.jo_date}}</td>
-            <td hidden id="legend" style="color:white;"><input type="hidden" id="sign_contract" value={{jos.jo_sign_contract}}><input type="hidden"  id="po" value={{jos.jo_po_no}}><input type="hidden" value={{jos.jo_coc}} id="co"><input type="hidden"  id="pcrrrr" value={{jos.jo_pcr}}>
+            <td hidden id="legend" style="color:white;"><input type="hidden" id="sign_contract" value={{jos.jo_sign_contract}}><input type="hidden"  id="po" value={{jos.jo_po_no}}><input type="hidden" value={{jos.jo_coc}} id="co"><input type="hidden"  id="pcrrrr" value={{jos.jo_pcr}}><input type="hidden"  id="joOR" value={{jos.jo_or}}>
             </td>
             <td id="sccc"></td>
             <td id="pop"></td>
@@ -192,6 +192,7 @@ crossorigin="anonymous"></script>
 <script src={% static '/js/moneyformater.js' %}></script>
 <script src={% static '/js/moment.js' %}></script>
 <script src={% static '/js/terms.js' %}></script>
+<script src={% static '/js/status.js' %}></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.js"></script>
 
 <script>

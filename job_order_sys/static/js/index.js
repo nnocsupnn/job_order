@@ -19,7 +19,7 @@ $('#dataTable tr td#legend').each(function(){
 //po status color coding
 $('#dataTable tr td#legend').each(function(){
     var popo = $(this).closest('tr').find('#po').val();
-    console.log(popo);
+    
     if(popo == '0'){
         $(this).closest('tr').find('#pop').html('<i class="large red remove icon"></i>');
     }
