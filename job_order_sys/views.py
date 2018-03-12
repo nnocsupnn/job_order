@@ -51,7 +51,6 @@ def index_a(request):
         name = request.user.get_username()
         megaa = AllowedUsersA.objects.filter(user_fullname=name).count()
         if megaa == 1:
-            
             return render(request,'megaa.html',{
                 'jo':jos,
                 'nc':legend_one,
@@ -82,6 +81,7 @@ def index_b(request):
     legend_three = MegaB.objects.filter(jo_po_no='0').count()
     legend_four = MegaB.objects.filter(jo_po_no='').count()
     legend_six = MegaB.objects.filter(jo_coc='coc').count()
+
     count = MegaB.objects.all().count()
     jos = MegaB.objects.all()
     

@@ -38,7 +38,34 @@ class MegaA(models.Model):
                ('coc','coc'))
     jo_coc = MultiSelectField(choices=choices,default='nococ')
     jo_inv_no = models.CharField(max_length=100)
-    jo_or = models.CharField(max_length=100,default="0") 
+    
+    jo_invoice1 = models.CharField(max_length=200,default="0");
+    jo_or1 = models.CharField(max_length=200,default="0");
+    jo_invoice2 = models.CharField(max_length=200,default="0");
+    jo_or2 = models.CharField(max_length=200,default="0");
+    jo_invoice3 = models.CharField(max_length=200,default="0");
+    jo_or3 = models.CharField(max_length=200,default="0");
+    jo_invoice4 = models.CharField(max_length=200,default="0");
+    jo_or4 = models.CharField(max_length=200,default="0");
+    jo_invoice5 = models.CharField(max_length=200,default="0");
+    jo_or5 = models.CharField(max_length=200,default="0");
+    jo_invoice6 = models.CharField(max_length=200,default="0");
+    jo_or6 = models.CharField(max_length=200,default="0");
+    jo_invoice7 = models.CharField(max_length=200,default="0");
+    jo_or7 = models.CharField(max_length=200,default="0");
+    jo_invoice8 = models.CharField(max_length=200,default="0");
+    jo_or8 = models.CharField(max_length=200,default="0");
+    jo_invoice9 = models.CharField(max_length=200,default="0");
+    jo_or9 = models.CharField(max_length=200,default="0");
+    jo_invoice10 = models.CharField(max_length=200,default="0");
+    jo_or10 = models.CharField(max_length=200,default="0");
+    jo_invoice11 = models.CharField(max_length=200,default="0");
+    jo_or11 = models.CharField(max_length=200,default="0");
+    jo_invoice12 = models.CharField(max_length=200,default="0");
+    jo_or12 = models.CharField(max_length=200,default="0");
+    jo_invoice13 = models.CharField(max_length=200,default="0");
+    jo_or13 = models.CharField(max_length=200,default="0");
+
     jo_or_date = models.DateField(default=date.today()) 
     jo_second_inv = models.CharField(max_length=100)
     jo_payment_date1 = models.DateField(default=date.today()) 
@@ -46,6 +73,7 @@ class MegaA(models.Model):
     jo_final_billing = models.CharField(max_length=100)
     jo_payment_date2 = models.DateField(default=date.today()) 
     jo_remarks = models.CharField(max_length=200)
+    jo_rev = models.IntegerField(max_length=11,default='0')
     class Meta:
         verbose_name_plural= "MegaA - Projects"
     def __str__(self):
@@ -72,7 +100,34 @@ class MegaB(models.Model):
                ('coc','coc'))
     jo_coc = MultiSelectField(choices=choices,default='nococ')
     jo_inv_no = models.CharField(max_length=100)
-    jo_or = models.CharField(max_length=100,default="0") 
+    
+    jo_invoice1 = models.CharField(max_length=200,default="0");
+    jo_or1 = models.CharField(max_length=200,default="0");
+    jo_invoice2 = models.CharField(max_length=200,default="0");
+    jo_or2 = models.CharField(max_length=200,default="0");
+    jo_invoice3 = models.CharField(max_length=200,default="0");
+    jo_or3 = models.CharField(max_length=200,default="0");
+    jo_invoice4 = models.CharField(max_length=200,default="0");
+    jo_or4 = models.CharField(max_length=200,default="0");
+    jo_invoice5 = models.CharField(max_length=200,default="0");
+    jo_or5 = models.CharField(max_length=200,default="0");
+    jo_invoice6 = models.CharField(max_length=200,default="0");
+    jo_or6 = models.CharField(max_length=200,default="0");
+    jo_invoice7 = models.CharField(max_length=200,default="0");
+    jo_or7 = models.CharField(max_length=200,default="0");
+    jo_invoice8 = models.CharField(max_length=200,default="0");
+    jo_or8 = models.CharField(max_length=200,default="0");
+    jo_invoice9 = models.CharField(max_length=200,default="0");
+    jo_or9 = models.CharField(max_length=200,default="0");
+    jo_invoice10 = models.CharField(max_length=200,default="0");
+    jo_or10 = models.CharField(max_length=200,default="0");
+    jo_invoice11 = models.CharField(max_length=200,default="0");
+    jo_or11 = models.CharField(max_length=200,default="0");
+    jo_invoice12 = models.CharField(max_length=200,default="0");
+    jo_or12 = models.CharField(max_length=200,default="0");
+    jo_invoice13 = models.CharField(max_length=200,default="0");
+    jo_or13 = models.CharField(max_length=200,default="0");
+
     jo_or_date = models.DateField(default=date.today()) 
     jo_second_inv = models.CharField(max_length=100)
     jo_payment_date1 = models.DateField(default=date.today()) 
@@ -80,6 +135,7 @@ class MegaB(models.Model):
     jo_final_billing = models.CharField(max_length=100)
     jo_payment_date2 = models.DateField(default=date.today()) 
     jo_remarks = models.CharField(max_length=200)
+    jo_rev = models.IntegerField(max_length=11,default='0')
     class Meta:
         verbose_name_plural= "MegaB - Projects"
     def __str__(self):
