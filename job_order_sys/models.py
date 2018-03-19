@@ -33,36 +33,51 @@ class MegaA(models.Model):
     jo_vat = models.CharField(max_length=200)
     jo_sign_contract = models.CharField(max_length=100)
     jo_po_no = models.CharField(max_length=200)
-    jo_pcr = models.CharField(max_length=200)
+    jo_pcr = models.DateField(default=None, blank=True, null=True)
+
     choices = (('nococ','nococ'),
                ('coc','coc'))
-    jo_coc = MultiSelectField(choices=choices,default='nococ')
+    jo_coc = models.DateField(default=None, blank=True, null=True)
+
     jo_inv_no = models.CharField(max_length=100)
     
+    jo_inv_date1 = models.DateField(default=date.today()) 
     jo_invoice1 = models.CharField(max_length=200,default="0");
     jo_or1 = models.CharField(max_length=200,default="0");
+    jo_inv_date2 = models.DateField(default=date.today()) 
     jo_invoice2 = models.CharField(max_length=200,default="0");
     jo_or2 = models.CharField(max_length=200,default="0");
+    jo_inv_date3 = models.DateField(default=date.today()) 
     jo_invoice3 = models.CharField(max_length=200,default="0");
     jo_or3 = models.CharField(max_length=200,default="0");
+    jo_inv_date4 = models.DateField(default=date.today()) 
     jo_invoice4 = models.CharField(max_length=200,default="0");
     jo_or4 = models.CharField(max_length=200,default="0");
+    jo_inv_date5 = models.DateField(default=date.today()) 
     jo_invoice5 = models.CharField(max_length=200,default="0");
     jo_or5 = models.CharField(max_length=200,default="0");
+    jo_inv_date6 = models.DateField(default=date.today()) 
     jo_invoice6 = models.CharField(max_length=200,default="0");
     jo_or6 = models.CharField(max_length=200,default="0");
+    jo_inv_date7 = models.DateField(default=date.today()) 
     jo_invoice7 = models.CharField(max_length=200,default="0");
     jo_or7 = models.CharField(max_length=200,default="0");
+    jo_inv_date8 = models.DateField(default=date.today()) 
     jo_invoice8 = models.CharField(max_length=200,default="0");
     jo_or8 = models.CharField(max_length=200,default="0");
+    jo_inv_date9 = models.DateField(default=date.today()) 
     jo_invoice9 = models.CharField(max_length=200,default="0");
     jo_or9 = models.CharField(max_length=200,default="0");
+    jo_inv_date10 = models.DateField(default=date.today()) 
     jo_invoice10 = models.CharField(max_length=200,default="0");
     jo_or10 = models.CharField(max_length=200,default="0");
+    jo_inv_date11 = models.DateField(default=date.today()) 
     jo_invoice11 = models.CharField(max_length=200,default="0");
     jo_or11 = models.CharField(max_length=200,default="0");
+    jo_inv_date12 = models.DateField(default=date.today()) 
     jo_invoice12 = models.CharField(max_length=200,default="0");
     jo_or12 = models.CharField(max_length=200,default="0");
+    jo_inv_date13 = models.DateField(default=date.today()) 
     jo_invoice13 = models.CharField(max_length=200,default="0");
     jo_or13 = models.CharField(max_length=200,default="0");
 
@@ -95,36 +110,52 @@ class MegaB(models.Model):
     jo_vat = models.CharField(max_length=200)
     jo_sign_contract = models.CharField(max_length=100)
     jo_po_no = models.CharField(max_length=200)
-    jo_pcr = models.CharField(max_length=200)
+    jo_pcr = models.DateField(default=None, blank=True, null=True)
+
     choices = (('nococ','nococ'),
                ('coc','coc'))
-    jo_coc = MultiSelectField(choices=choices,default='nococ')
+    jo_coc = models.DateField(default=None, blank=True, null=True)
+
+
     jo_inv_no = models.CharField(max_length=100)
     
+    jo_inv_date1 = models.DateField(default=date.today()) 
     jo_invoice1 = models.CharField(max_length=200,default="0");
     jo_or1 = models.CharField(max_length=200,default="0");
+    jo_inv_date2 = models.DateField(default=date.today()) 
     jo_invoice2 = models.CharField(max_length=200,default="0");
     jo_or2 = models.CharField(max_length=200,default="0");
+    jo_inv_date3 = models.DateField(default=date.today()) 
     jo_invoice3 = models.CharField(max_length=200,default="0");
     jo_or3 = models.CharField(max_length=200,default="0");
+    jo_inv_date4 = models.DateField(default=date.today()) 
     jo_invoice4 = models.CharField(max_length=200,default="0");
     jo_or4 = models.CharField(max_length=200,default="0");
+    jo_inv_date5 = models.DateField(default=date.today()) 
     jo_invoice5 = models.CharField(max_length=200,default="0");
     jo_or5 = models.CharField(max_length=200,default="0");
+    jo_inv_date6 = models.DateField(default=date.today()) 
     jo_invoice6 = models.CharField(max_length=200,default="0");
     jo_or6 = models.CharField(max_length=200,default="0");
+    jo_inv_date7 = models.DateField(default=date.today()) 
     jo_invoice7 = models.CharField(max_length=200,default="0");
     jo_or7 = models.CharField(max_length=200,default="0");
+    jo_inv_date8 = models.DateField(default=date.today()) 
     jo_invoice8 = models.CharField(max_length=200,default="0");
     jo_or8 = models.CharField(max_length=200,default="0");
+    jo_inv_date9 = models.DateField(default=date.today()) 
     jo_invoice9 = models.CharField(max_length=200,default="0");
     jo_or9 = models.CharField(max_length=200,default="0");
+    jo_inv_date10 = models.DateField(default=date.today()) 
     jo_invoice10 = models.CharField(max_length=200,default="0");
     jo_or10 = models.CharField(max_length=200,default="0");
+    jo_inv_date11 = models.DateField(default=date.today()) 
     jo_invoice11 = models.CharField(max_length=200,default="0");
     jo_or11 = models.CharField(max_length=200,default="0");
+    jo_inv_date12 = models.DateField(default=date.today()) 
     jo_invoice12 = models.CharField(max_length=200,default="0");
     jo_or12 = models.CharField(max_length=200,default="0");
+    jo_inv_date13 = models.DateField(default=date.today()) 
     jo_invoice13 = models.CharField(max_length=200,default="0");
     jo_or13 = models.CharField(max_length=200,default="0");
 

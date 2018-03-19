@@ -8,6 +8,8 @@
 </div>
 
 
+
+
 {% if messages %}
     {% for message in messages %}
         <div {% if message.tags %} class="ui {{ message.tags }} message" {% endif %} style="margin: 15px;">
@@ -137,8 +139,8 @@
             <th rowspan="2" id="th">Revision</th>
             <th rowspan="2" hidden id="th" class="joCodee" id="joCodee">JO Code</th>
             <th rowspan="2" id="th">Client</th>
-            <th rowspan="2" id="th">QL/QN</th>
-            <th rowspan="2" id="th">Project No.</th>
+            <th hidden rowspan="2" id="th">QL/QN</th>
+            <th hidden rowspan="2" id="th">Project No.</th>
             <th rowspan="2" id="th">Contract Price</th>
             <th rowspan="2" id="th">Terms (Due/Delayed)</th>
             <th colspan="2" id="th">Initial Billing</th>
@@ -157,7 +159,7 @@
                     View Details
                   </div></a></td>
             <td>{{jos.jo_date}}</td>
-            <td hidden id="legend" style="color:white;"><input type="hidden" id="sign_contract" value={{jos.jo_sign_contract}}><input type="hidden"  id="po" value={{jos.jo_po_no}}><input type="hidden" value={{jos.jo_coc}} id="co"><input type="hidden"  id="pcrrrr" value={{jos.jo_pcr}}><input type="hidden"  id="joOR" value={{jos.jo_or}}>
+            <td hidden id="legend" style="color:white;"><input type="hidden" id="sign_contract" value={{jos.jo_sign_contract}}><input type="hidden"  id="po" value={{jos.jo_po_no}}><input type="hidden" value="{{jos.jo_coc}}" id="co"><input type="hidden"  id="pcrrrr" value="{{jos.jo_pcr}}"><input type="hidden"  id="joOR" value={{jos.jo_or}}>
                 <input type="hidden"  id="inv_1" value={{jos.jo_invoice1}}>
                 <input type="hidden"  id="inv_2" value={{jos.jo_invoice2}}>
                 <input type="hidden"  id="inv_3" value={{jos.jo_invoice3}}>
@@ -171,6 +173,20 @@
                 <input type="hidden"  id="inv_11" value={{jos.jo_invoice11}}>
                 <input type="hidden"  id="inv_12" value={{jos.jo_invoice12}}>
                 <input type="hidden"  id="inv_13" value={{jos.jo_invoice13}}>
+
+                <input type="hidden"  id="invdate_1" value="{{jos.jo_inv_date1}}">
+                <input type="hidden"  id="invdate_2" value="{{jos.jo_inv_date2}}">
+                <input type="hidden"  id="invdate_3" value="{{jos.jo_inv_date3}}">
+                <input type="hidden"  id="invdate_4" value="{{jos.jo_inv_date4}}">
+                <input type="hidden"  id="invdate_5" value="{{jos.jo_inv_date5}}">
+                <input type="hidden"  id="invdate_6" value="{{jos.jo_inv_date6}}">
+                <input type="hidden"  id="invdate_7" value="{{jos.jo_inv_date7}}">
+                <input type="hidden"  id="invdate_8" value="{{jos.jo_inv_date8}}">
+                <input type="hidden"  id="invdate_9" value="{{jos.jo_inv_date9}}">
+                <input type="hidden"  id="invdate_10" value="{{jos.jo_inv_date10}}">
+                <input type="hidden"  id="invdate_11" value="{{jos.jo_inv_date11}}">
+                <input type="hidden"  id="invdate_12" value="{{jos.jo_inv_date12}}">
+                <input type="hidden"  id="invdate_13" value="{{jos.jo_inv_date13}}">
 
                 <input type="hidden"  id="or_1" value={{jos.jo_or1}}>
                 <input type="hidden"  id="or_2" value={{jos.jo_or2}}>
@@ -194,8 +210,8 @@
             <td>{{jos.jo_rev}}</td>
             <td hidden id="cocCode">{{jos.jo_code}}</td>
             <td>{{jos.jo_clients}}</td>
-            <td>{{jos.jo_qlqnChoices}}</td>
-            <td>{{jos.jo_project_no}}</td>
+            <td hidden>{{jos.jo_qlqnChoices}}</td>
+            <td hidden>{{jos.jo_project_no}}</td>
             <td class="money" style="font-weight:bolder;font-family: courier new;">{{jos.jo_contact_price}}</td>
             <td id="terms">{{jos.jo_terms}} days</td>
             

@@ -23,7 +23,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 
-    <title>JOB ORDER</title>
+    <title>JO - Project Monitoring</title>
 </head>
 <body>
         <div class="ui menu">
@@ -38,13 +38,10 @@
             </a>
             
             <div class="right menu">
-                <a class="item" id="onlineUser"><i class="circle green icon"></i> Online</a>
-                    <a class="item" href="/logout">
-                        <i class="sign out alternate red icon"></i>Logout?
-                    </a>
+                 
             </div>
         </div>
-        <div class="ui icon sidebar inverted vertical  menu">
+        <div class="ui thin sidebar vertical inverted labeled icon menu">
             {% load staticfiles %}
             <div class="ui card">
                 <a class="image" href="#">
@@ -60,6 +57,11 @@
             <a class="item" href="/admin">
                 <i class="ui spy icon"></i>Admin
             </a>
+            <a class="item" id="onlineUser"><i class="circle green icon"></i> Online</a>
+            <a class="item" href="/logout">
+                <i class="sign out alternate icon"></i>Logout?
+            </a>
+            
         </div>
 
 

@@ -6,16 +6,15 @@ from django.contrib.auth import login, logout, authenticate
 from .models import MegaA, MegaB, AllowedUsersA, AllowedUsersB, Comments
 from datetime import datetime, timedelta
 from loggedusers import get_all_logged_in_users
-import sys
 
 # Create your views here.
 def login_page(request):
     if request.user.is_authenticated:
-        return index_a(request)
+        return HttpResponseRedirect('/megaa')
     else: 
         return render(request,'accounts/login.html')
     
-
+#function logged you in
 def loggedin_page(request):
     username = request.POST.get('username','')
     password = request.POST.get('password','')
@@ -29,11 +28,12 @@ def loggedin_page(request):
     else:
         return HttpResponse('Incorrect Username or Password.') 
 
+#function logout
 def logout_page(request):
     logout(request)
     return HttpResponseRedirect('/')
 
-#index view and render
+#index a - mega a
 def index_a(request):
     print("\n------------- Accessing index-MEGA-A-----------------")
     print("--> user: "+request.user.get_full_name())
@@ -44,7 +44,7 @@ def index_a(request):
     JoCodepo = MegaA.objects.filter(jo_po_no='0')
     legend_three = MegaA.objects.filter(jo_po_no='0').count()
     legend_four = MegaA.objects.filter(jo_po_no='').count()
-    legend_six = MegaA.objects.filter(jo_coc='coc').count()
+    
     count = MegaA.objects.all().count()
     jos = MegaA.objects.all()
     if request.user.is_authenticated:
@@ -56,7 +56,7 @@ def index_a(request):
                 'nc':legend_one,
                 'nopo':legend_three,
                 'po':legend_four,
-                'coc':legend_six,
+                
                 'count':count,
                 'sc_Code':JoCodenc,
                 'po_Code':JoCodepo,
@@ -68,7 +68,7 @@ def index_a(request):
             return HttpResponseRedirect('/megab')
     else:
         return login_page(request)
-
+#index b - mega b 
 def index_b(request):
     online_user = get_all_logged_in_users()
     print(online_user)
@@ -80,11 +80,11 @@ def index_b(request):
     JoCodepo = MegaB.objects.filter(jo_po_no='0')
     legend_three = MegaB.objects.filter(jo_po_no='0').count()
     legend_four = MegaB.objects.filter(jo_po_no='').count()
-    legend_six = MegaB.objects.filter(jo_coc='coc').count()
+    
 
     count = MegaB.objects.all().count()
     jos = MegaB.objects.all()
-    
+    #check if user is authenticated or not
     if request.user.is_authenticated:
         name = request.user.get_username()
         megab = AllowedUsersB.objects.filter(user_fullname=name).count()
@@ -94,7 +94,7 @@ def index_b(request):
                 'nc':legend_one,
                 'nopo':legend_three,
                 'po':legend_four,
-                'coc':legend_six,
+               
                 'count':count,
                 'sc_Code':JoCodenc,
                 'po_Code':JoCodepo,
@@ -125,6 +125,7 @@ def details_a(request, id):
     })
     
 
+#details on mega b
 def details_b(request, id):
     print("\n------------- Viewing "+ id +" -----------------")
     print("--> user: "+request.user.get_username())
@@ -147,7 +148,7 @@ def addcomment(request, id):
     dept = request.POST['dept']
     name = request.user.get_full_name()
     text = request.POST['text']
-   #if empty save will not execute..
+#if empty save will not execute..
     if name:
         Comm = Comments()
         Comm.comment_id = idd

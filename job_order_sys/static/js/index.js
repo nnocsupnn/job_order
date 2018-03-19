@@ -38,12 +38,13 @@ $('#dataTable tr td#legend').each(function(){
 //coc status color coding
 $('#dataTable tr td#legend').each(function(){
     var coc = $(this).closest('tr').find('#co').val();
-    if(coc == 'nococ'){
+    
+    if(coc == 'None'){
         $(this).closest('tr').find('#coccc').html('<i class="large red remove icon"></i>');
         no_nococ++;
+        console.log(coc);
     }
     else {
-
         $(this).closest('tr').find('#coccc').html('<i class="large green checkmark icon"></i>');
         no_coc++;
     } 
@@ -54,19 +55,21 @@ $('#dataTable tr td#legend').each(function(){
 //pcr status color coding
 $('#dataTable tr td#legend').each(function(){
     var prcr = $(this).closest('tr').find('#pcrrrr').val();
-    if(prcr == '0'){
+
+    if(prcr == 'None'){
         pcr++;
         $(this).closest('tr').find('#pccrrrrr').html('<i class="large red remove icon"></i>');
     }
     else {
         $(this).closest('tr').find('#pccrrrrr').html('<i class="large green check icon"></i>');
+        $(this).closest('tr').find('#pccrrrrr').append('<br><i>Recieved<br>'+prcr+'<i>');
     } 
 });
 
 $('#dataTable tr').each(function(){
     var coc = $(this).closest('tr').find('#co').val();
     var ccoc = $(this).closest('tr').find('#cocCode').text();
-    if(coc == 'nococ'){
+    if(coc == 'None'){
         $('#noCoc').append('<i class="caret right icon"></i> '+ccoc+' <br>');
     }
     else{

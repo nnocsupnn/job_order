@@ -32,7 +32,7 @@ $('#dataTable tr#dataa').each(function(){
     let or12 = $(this).closest('tr').find('#or_12').val();
     let or13 = $(this).closest('tr').find('#or_13').val();
 
-    //creates and array to store all data in single array var
+    //creates and array to store all data in single array vars
     let invAll = [inv1,inv2,inv3,inv4,inv5,inv6,inv7,inv8,inv9,inv10,inv11,inv12,inv13];
     let orAll =  [or1,or2,or3,or4,or5,or6,or7,or8,or9,or10,or11,or12,or13];
 
@@ -55,15 +55,13 @@ $('#dataTable tr#dataa').each(function(){
     		count__or = count__or + 1;
     	}
     }
-
+    //check if invoice and count is both not null
     if (invoicee == count__or) {
-    	$(this).closest('tr').find('#invoiceNo').append('<br><i class=\"info circle green icon\"></i><b>PAID</b>');
+    	
     }
     else{
-    	$(this).closest('tr').find('#invoiceNo').append('<br><i class=\"info circle red icon\"></i><b>UNPAID</b>');
+    	$(this).closest('tr').find('#invoiceNo').append('<br><i class=\"info circle blue icon\"></i><b>Current</b>');
     }
-	console.log(invoicee + '/' + count__or);
-    console.log('-----------------------------');
     count__or = 0;
     invoicee  = 0;
 });
