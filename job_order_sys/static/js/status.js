@@ -48,7 +48,7 @@ $('#dataTable tr#dataa').each(function(){
 
     //loop for or array
     for (var i = 0;i <= 12; i++) {
-    	if(orAll[i] == 0){
+    	if(orAll[i] == 'None'){
     		
     	}
     	else {
@@ -57,7 +57,8 @@ $('#dataTable tr#dataa').each(function(){
     }
     //check if invoice and count is both not null
     if (invoicee == count__or) {
-    	
+    	$(this).closest('tr').find('#invoiceNo').append('<br><button id="infoInv" class=\"ui button\"><b><i class="info circle green icon"></i>PAID</b></button>');
+    
     }
     else{
     	$(this).closest('tr').find('#invoiceNo').append('<br><i class=\"info circle blue icon\"></i><b>Current</b>');

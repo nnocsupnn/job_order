@@ -29,6 +29,19 @@
     <div class="value">
     {% load staticfiles %}
 
+    <!-- -->
+    <div class="ui mini modal" id="invoiceInfo">
+        <div class="header"><i class="info circle icon"></i> Invoice Status</div>
+        <div class="content" id="invoiceInfoData">
+            <h4>Recieved Payment</h4>
+            
+        </div>
+        <div class="actions">
+        <div class="ui youtube cancel button">Close</div>
+        </div>
+    </div>
+
+
     <div class="ui mini modal" id="modalCode">
         <div class="header"><i class="bar chart icon"></i> Statistics</div>
         <div class="content">
@@ -131,7 +144,7 @@
         <thead>
         <tr>
             <th rowspan="2" id="th" style="font-size: 20px;">Project Code</th>
-            <th rowspan="2" id="th">Date</th>
+            <th rowspan="2" id="th">JO Date</th>
             <th rowspan="2" id="th" data-tooltip="Signed Contract" data-inverted>SC</th>
             <th rowspan="2" id="th" data-tooltip="Purchase Order" data-inverted>PO</th>
             <th rowspan="2" id="th" data-tooltip="Certificate of Completion" data-inverted>COC</th>
@@ -143,13 +156,16 @@
             <th hidden rowspan="2" id="th">Project No.</th>
             <th rowspan="2" id="th">Contract Price</th>
             <th rowspan="2" id="th">Terms (Due/Delayed)</th>
-            <th colspan="2" id="th">Initial Billing</th>
-            <th rowspan="2" id="th">Final Billing</th>  
-            <th rowspan="2" id="th">Addendum</th>
+            <th colspan="2" id="th">Billing Date</th>
+            <th colspan="3" id="th">Invoices</th>  
+            
         </tr>
         <tr>
-            <th id="th">Date</th>
-            <th id="th">Invoice No.</th>
+            <th id="th">Initial Date</th>
+            <th id="th">PCR Billing Date</th>
+            <th id="th">Initial Invoice</th>
+            <th id="th">Final Billing</th>
+            <th id="th">Addendum</th>
         </tr>
     </thead>
         <tbody>
@@ -159,49 +175,32 @@
                     View Details
                   </div></a></td>
             <td>{{jos.jo_date}}</td>
-            <td hidden id="legend" style="color:white;"><input type="hidden" id="sign_contract" value={{jos.jo_sign_contract}}><input type="hidden"  id="po" value={{jos.jo_po_no}}><input type="hidden" value="{{jos.jo_coc}}" id="co"><input type="hidden"  id="pcrrrr" value="{{jos.jo_pcr}}"><input type="hidden"  id="joOR" value={{jos.jo_or}}>
+            <td hidden id="legend" style="color:white;"><input type="hidden" id="sign_contract" value={{jos.jo_sign_contract}}><input type="hidden"  id="po" value={{jos.jo_po_no}}><input type="hidden" value="{{jos.jo_coc}}" id="co"><input type="hidden"  id="pcrrrr" value="{{jos.jo_pcr_recieve}}"><input type="hidden"  id="joOR" value={{jos.jo_or}}>
+                <input type="hidden" id="pcrBill_date" value="{{jos.jo_pcr_date_bill}}">
                 <input type="hidden"  id="inv_1" value={{jos.jo_invoice1}}>
                 <input type="hidden"  id="inv_2" value={{jos.jo_invoice2}}>
                 <input type="hidden"  id="inv_3" value={{jos.jo_invoice3}}>
                 <input type="hidden"  id="inv_4" value={{jos.jo_invoice4}}>
                 <input type="hidden"  id="inv_5" value={{jos.jo_invoice5}}>
-                <input type="hidden"  id="inv_6" value={{jos.jo_invoice6}}>
-                <input type="hidden"  id="inv_7" value={{jos.jo_invoice7}}>
-                <input type="hidden"  id="inv_8" value={{jos.jo_invoice8}}>
-                <input type="hidden"  id="inv_9" value={{jos.jo_invoice9}}>
-                <input type="hidden"  id="inv_10" value={{jos.jo_invoice10}}>
-                <input type="hidden"  id="inv_11" value={{jos.jo_invoice11}}>
-                <input type="hidden"  id="inv_12" value={{jos.jo_invoice12}}>
-                <input type="hidden"  id="inv_13" value={{jos.jo_invoice13}}>
 
                 <input type="hidden"  id="invdate_1" value="{{jos.jo_inv_date1}}">
                 <input type="hidden"  id="invdate_2" value="{{jos.jo_inv_date2}}">
                 <input type="hidden"  id="invdate_3" value="{{jos.jo_inv_date3}}">
                 <input type="hidden"  id="invdate_4" value="{{jos.jo_inv_date4}}">
                 <input type="hidden"  id="invdate_5" value="{{jos.jo_inv_date5}}">
-                <input type="hidden"  id="invdate_6" value="{{jos.jo_inv_date6}}">
-                <input type="hidden"  id="invdate_7" value="{{jos.jo_inv_date7}}">
-                <input type="hidden"  id="invdate_8" value="{{jos.jo_inv_date8}}">
-                <input type="hidden"  id="invdate_9" value="{{jos.jo_inv_date9}}">
-                <input type="hidden"  id="invdate_10" value="{{jos.jo_inv_date10}}">
-                <input type="hidden"  id="invdate_11" value="{{jos.jo_inv_date11}}">
-                <input type="hidden"  id="invdate_12" value="{{jos.jo_inv_date12}}">
-                <input type="hidden"  id="invdate_13" value="{{jos.jo_inv_date13}}">
 
-                <input type="hidden"  id="or_1" value={{jos.jo_or1}}>
-                <input type="hidden"  id="or_2" value={{jos.jo_or2}}>
-                <input type="hidden"  id="or_3" value={{jos.jo_or3}}>
-                <input type="hidden"  id="or_4" value={{jos.jo_or4}}>
-                <input type="hidden"  id="or_5" value={{jos.jo_or5}}>
-                <input type="hidden"  id="or_6" value={{jos.jo_or6}}>
-                <input type="hidden"  id="or_7" value={{jos.jo_or7}}>
-                <input type="hidden"  id="or_8" value={{jos.jo_or8}}>
-                <input type="hidden"  id="or_9" value={{jos.jo_or9}}>
-                <input type="hidden"  id="or_10" value={{jos.jo_or10}}>
-                <input type="hidden"  id="or_11" value={{jos.jo_or11}}>
-                <input type="hidden"  id="or_12" value={{jos.jo_or12}}>
-                <input type="hidden"  id="or_13" value={{jos.jo_or13}}>
+                <input type="hidden"  id="or_1" value="{{jos.jo_payment_date_1}}">
+                <input type="hidden"  id="or_2" value="{{jos.jo_payment_date_2}}">
+                <input type="hidden"  id="or_3" value="{{jos.jo_payment_date_3}}">
+                <input type="hidden"  id="or_4" value="{{jos.jo_payment_date_4}}">
+                <input type="hidden"  id="or_5" value="{{jos.jo_payment_date_5}}">
 
+                <input type="hidden"  id="orr_1" value="{{jos.jo_or1}}">
+                <input type="hidden"  id="orr_2" value="{{jos.jo_or2}}">
+                <input type="hidden"  id="orr_3" value="{{jos.jo_or3}}">
+                <input type="hidden"  id="orr_4" value="{{jos.jo_or4}}">
+                <input type="hidden"  id="orr_5" value="{{jos.jo_or5}}">
+                
             </td>
             <td id="sccc"></td>
             <td id="pop"></td>
@@ -214,10 +213,10 @@
             <td hidden>{{jos.jo_project_no}}</td>
             <td class="money" style="font-weight:bolder;font-family: courier new;">{{jos.jo_contact_price}}</td>
             <td id="terms">{{jos.jo_terms}} days</td>
-            
-            <td id="startDate">{{jos.jo_or_date}}</td>  
-            <td id="invoiceNo">{{jos.jo_inv_no}}</td>  
-            <td>{{jos.jo_final_billing}}</td> 
+            <td id="startDate"></td>
+            <td id="pcrBilldate">{{jos.jo_pcr_date_bill}}</td>  
+            <td id="invoiceNo"></td>  
+            <td id="final_billing">{{jos.jo_final_billing}} <br> {{jos.jo_final_date}}</td> 
             <td>{{jos.jo_addendum}}</td>
         </tr>
         {% endfor %}
@@ -235,7 +234,10 @@ crossorigin="anonymous"></script>
 <script src={% static '/js/moneyformater.js' %}></script>
 <script src={% static '/js/moment.js' %}></script>
 <script src={% static '/js/terms.js' %}></script>
+<script src={% static '/js/dues.js' %}></script>
 <script src={% static '/js/status.js' %}></script>
+<script src={% static '/js/pcr.js' %}></script>
+<script src={% static '/js/final_bill.js' %}></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.js"></script>
 
 <script>
@@ -251,6 +253,11 @@ crossorigin="anonymous"></script>
         $('#segments').removeClass('vertical');
         $('#segments').addClass('horizontal');
     }
+
+    $('#infoInv').on('click',()=>{
+        $('#invoiceInfo').modal('show');
+    });
+
     $('#btnProjects').on('click',()=>{
         $('#modalCode').modal('show');
     });
