@@ -42,27 +42,27 @@ class MegaA(models.Model):
 
     jo_inv_no = models.CharField(max_length=100)
     
-    jo_inv_date1 = models.DateField(default=date.today()) 
+    jo_inv_date1 = models.DateField(default=None, blank=True, null=True)
     jo_invoice1 = models.CharField(max_length=200,default="0")
     jo_or1 = models.CharField(max_length=200,default="0")
     jo_payment_date_1 = models.DateField(default=None, blank=True, null=True)
 
-    jo_inv_date2 = models.DateField(default=date.today()) 
+    jo_inv_date2 = models.DateField(default=None, blank=True, null=True)
     jo_invoice2 = models.CharField(max_length=200,default="0")
     jo_or2 = models.CharField(max_length=200,default="0")
     jo_payment_date_2 = models.DateField(default=None, blank=True, null=True)
 
-    jo_inv_date3 = models.DateField(default=date.today()) 
+    jo_inv_date3 = models.DateField(default=None, blank=True, null=True)
     jo_invoice3 = models.CharField(max_length=200,default="0")
     jo_or3 = models.CharField(max_length=200,default="0")
     jo_payment_date_3 = models.DateField(default=None, blank=True, null=True)
 
-    jo_inv_date4 = models.DateField(default=date.today())
+    jo_inv_date4 = models.DateField(default=None, blank=True, null=True)
     jo_invoice4 = models.CharField(max_length=200,default="0")
     jo_or4 = models.CharField(max_length=200,default="0")
     jo_payment_date_4 = models.DateField(default=None, blank=True, null=True)
 
-    jo_inv_date5 = models.DateField(default=date.today()) 
+    jo_inv_date5 = models.DateField(default=None, blank=True, null=True)
     jo_invoice5 = models.CharField(max_length=200,default="0")
     jo_or5 = models.CharField(max_length=200,default="0")
     jo_payment_date_5 = models.DateField(default=None, blank=True, null=True)
@@ -111,27 +111,27 @@ class MegaB(models.Model):
 
     jo_inv_no = models.CharField(max_length=100)
     
-    jo_inv_date1 = models.DateField(default=date.today()) 
+    jo_inv_date1 = models.DateField(default=None, blank=True, null=True) 
     jo_invoice1 = models.CharField(max_length=200,default="0")
     jo_or1 = models.CharField(max_length=200,default="0")
     jo_payment_date_1 = models.DateField(default=None, blank=True, null=True)
 
-    jo_inv_date2 = models.DateField(default=date.today()) 
+    jo_inv_date2 = models.DateField(default=None, blank=True, null=True)
     jo_invoice2 = models.CharField(max_length=200,default="0")
     jo_or2 = models.CharField(max_length=200,default="0")
     jo_payment_date_2 = models.DateField(default=None, blank=True, null=True)
 
-    jo_inv_date3 = models.DateField(default=date.today()) 
+    jo_inv_date3 = models.DateField(default=None, blank=True, null=True)
     jo_invoice3 = models.CharField(max_length=200,default="0")
     jo_or3 = models.CharField(max_length=200,default="0")
     jo_payment_date_3 = models.DateField(default=None, blank=True, null=True)
 
-    jo_inv_date4 = models.DateField(default=date.today())
+    jo_inv_date4 = models.DateField(default=None, blank=True, null=True)
     jo_invoice4 = models.CharField(max_length=200,default="0")
     jo_or4 = models.CharField(max_length=200,default="0")
     jo_payment_date_4 = models.DateField(default=None, blank=True, null=True)
 
-    jo_inv_date5 = models.DateField(default=date.today()) 
+    jo_inv_date5 = models.DateField(default=None, blank=True, null=True)
     jo_invoice5 = models.CharField(max_length=200,default="0")
     jo_or5 = models.CharField(max_length=200,default="0")
     jo_payment_date_5 = models.DateField(default=None, blank=True, null=True)

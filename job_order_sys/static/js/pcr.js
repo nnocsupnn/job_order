@@ -7,5 +7,16 @@ $('#dataTable tr#dataa').each(function(){
     var newPcrDate = new Date(pcr);
     var newBillDate = new Date(billdate);
     var delay = Math.floor((newBillDate - newPcrDate)/(1000 * 60 * 60 * 24));
-    $(this).closest('tr').find('#pcrBilldate').append('<br><i class="" style="color: red;">'+(delay - 4)+' day(s)</i>');
+    delay -= 5;
+    if(delay <= 0){
+        
+    }
+    else{
+        if(delay < 4){
+
+        }
+        else{
+            $(this).closest('tr').find('#pcrBilldate').append('<hr><i class="" style="color: red;">'+(delay)+' day(s)</i>');
+        }
+    }
 });

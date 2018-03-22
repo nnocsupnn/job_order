@@ -30,11 +30,11 @@
             <a id="menuBtn" class="item">
                 <i class="bars icon"></i> Menu
             </a>
-            <a class="item" href="/megaa">
-                <div class="ui icon primary button"><i class="folder icon"></i>Mega A</div>
+            <a class="item" id="megaA" href="/megaa">
+                <i class="folder icon"></i> Mega A
             </a>
-            <a class="item" href="/megab">
-                <div class="ui icon secondary button"><i class="folder icon"></i>Mega B</div>
+            <a class="item" id="megaB" href="/megab">
+                <i class="folder icon"></i> Mega B
             </a>
             
             <div class="right menu">
@@ -91,4 +91,6 @@
    $('.item').on('blur','a.item',function(){
         $(this).addClass('active');
    });
+   
+   
 </script>

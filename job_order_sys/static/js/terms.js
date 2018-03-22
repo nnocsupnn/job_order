@@ -1,4 +1,3 @@
-
 //getting due day based on days set
 $('#dataTable tr#dataa').each(function(){
     var termsDays = $(this).closest('tr').find('#terms').html();
@@ -43,74 +42,74 @@ $('#dataTable tr#dataa').each(function(){
     for (var i = 0;i <= 4; i++) {
     	if(invAll[i] == "0"){
             var terms = inv_dates[i];
-            
             terms = terms.replace("."," ");
-            terms = terms.replace(","," ");
-        
             var months = ['Jan.','Feb.','Mar.','Apr.','May.','Jun.','Jul.','Aug.','Sep.','Oct.','Nov.','Dec.']
             var newDate = new Date(terms);
-           
             newDate.setDate(newDate.getDate() + parseInt(termsDays));
             //console.log(code + " " + newDate);
-            var month = months[newDate.getMonth()];
-            var day = parseInt(newDate.getDate());
-            var year = newDate.getFullYear();
+            
     	}
     	else {
            if(invAll[i] != '0' && orAll[i] != 'None')
             {
+                
                 var no = i;
-                no +=1;
+                no += 1;
                 var numWords = ['st','nd','rd','th','th','th','th','th','th','th','th','th','th'];    
                 $('#invoiceInfoData').append('<b style="color: blue;">'+no+numWords[i]+'</b> - ('+ orNumber[i]+')<br>');
-                
             }
             else{
                 var terms = inv_dates[i];
-                $(this).closest('tr').find('#startDate').append('<i style="font-size: 11px;color: red;">'+inv_dates[i].substr(0,8)+'<br></i>');
-                terms = terms.replace("."," ");
-                var months = ['Jan.','Feb.','Mar.','Apr.','May.','Jun.','Jul.','Aug.','Sep.','Oct.','Nov.','Dec.']
+                $('#invoiceDatee').val(terms);
+                console.log(inv_dates[i]);
+                //get jo input dat
+                var jo_date = $(this).closest('tr').find('#jo_date').html();
+                var newJo_date = new Date(jo_date);
+                var invDate_jo = new Date(inv_dates[i]);
+                var delay = Math.floor((invDate_jo - newJo_date)/(1000 * 60 * 60 * 24));
+                delay = delay + 5;
+                console.log(delay);
+                if(delay < 0){
+                    $(this).closest('tr').find('#startDate').append('<hr><i style="font-size: 11px;">'+inv_dates[i]+'<br></i>');
+                    
+                }
+                else{
+                    $(this).closest('tr').find('#startDate').append('<hr><i style="font-size: 11px;color:red;">'+delay+' day(s)</i><br></i>');
+                }
+
                 var newDate = new Date(terms);
                 newDate.setDate(newDate.getDate() + parseInt(termsDays));
 
-                //console.log(code + " " + newDate);
-                var month = months[newDate.getMonth()];
-                var day = parseInt(newDate.getDate());
-                var year = newDate.getFullYear();
-
                 //getting days delayed
                 var dateDue = newDate;
-                var  toDate = new Date();
+                var toDate = new Date();
                 var diff = Math.floor((dateDue - toDate)/(1000 * 60 * 60 * 24));
-                console.log(diff);
+                //console.log(diff);
                 var checkifPaid = false;
                 //if duedate exceeds the date due it will count the due diff and notify you in the page
                 if(diff < 0){
                     checkifPaid = true;
                     diff = Math.abs(diff);
                     $(this).closest('tr').find('#idCode').removeClass('vk').addClass('youtube');
-                    $(this).closest('tr').find('#invoiceNo').append("<br><i class=\"attention red icon\"></i><i style=\"color: red;\">"+diff+" day(s)</strong></i>");
+                    $(this).closest('tr').find('#invoiceNo').append("<br><i class=\"attention red icon\"></i><i style=\"color: red;\">"+(diff-5)+" day(s)</strong></i>");
                     var codee = $(this).find('#cocCode').text();
-                    $('#daysDelayed').append('<br><i class="caret right icon"></i>'+codee+'<br><i style="padding-left: 20px;color: red;">'+diff+" days delayed</i>");
+                    $('#daysDelayed').append('<i class="caret right icon"></i>'+codee+'<br><i style="padding-left: 20px;color: red;">'+diff+" days delayed</i>");
                 }
                 else{
-
+                        //nothing
+                        
                     }
                 }
+                $(this).closest('tr').find('#startDate').append('<i style="font-size: 11px;">'+inv_dates[i]+'<br></i>');
+                $(this).closest('tr').find('#invoiceNo').append('<hr><i style="font-size: 11px;">'+inv_dates[i]+'<br></i>');
+               
             }
-            
-    		
     	}
     
     //set jo code set to upper case
     let upp = $(this).find('#jo_Code').text().toUpperCase();
     $(this).find('#jo_Code').text(upp);
-    if(checkifPaid){
-        $(this).closest('tr').find('#startDate').append(year);
-    }
-    else{
-        $(this).closest('tr').find('#startDate').append('---');
-    }
+
     //$(this).closest('tr').find('#terms').append("<br><i style=\"color: red;\">("+month +" "+ day +", " + year+")</i>");
     
 });

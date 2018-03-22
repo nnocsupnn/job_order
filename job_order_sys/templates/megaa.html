@@ -174,7 +174,7 @@
             <td><a href="project/{{jos.id}}" id="idCode" class="ui circular animated fade vk button" style="width: 100%;"><div id="jo_Code" class="visible content">{{jos.jo_code}}</div><div class="hidden content">
                     View Details
                   </div></a></td>
-            <td>{{jos.jo_date}}</td>
+            <td id="jo_date">{{jos.jo_date}}</td>
             <td hidden id="legend" style="color:white;"><input type="hidden" id="sign_contract" value={{jos.jo_sign_contract}}><input type="hidden"  id="po" value={{jos.jo_po_no}}><input type="hidden" value="{{jos.jo_coc}}" id="co"><input type="hidden"  id="pcrrrr" value="{{jos.jo_pcr_recieve}}"><input type="hidden"  id="joOR" value={{jos.jo_or}}>
                 <input type="hidden" id="pcrBill_date" value="{{jos.jo_pcr_date_bill}}">
                 <input type="hidden"  id="inv_1" value={{jos.jo_invoice1}}>
@@ -200,6 +200,8 @@
                 <input type="hidden"  id="orr_3" value="{{jos.jo_or3}}">
                 <input type="hidden"  id="orr_4" value="{{jos.jo_or4}}">
                 <input type="hidden"  id="orr_5" value="{{jos.jo_or5}}">
+
+                <input type="hidden"  id="invoiceDatee" value="">
                 
             </td>
             <td id="sccc"></td>
@@ -216,8 +218,8 @@
             <td id="startDate"></td>
             <td id="pcrBilldate">{{jos.jo_pcr_date_bill}}</td>  
             <td id="invoiceNo"></td>  
-            <td id="final_billing">{{jos.jo_final_billing}} <br> {{jos.jo_final_date}}</td> 
-            <td>{{jos.jo_addendum}}</td>
+            <td id="final_billing"></td> 
+            <td hidden>{{jos.jo_addendum}}</td>
         </tr>
         {% endfor %}
     </tbody>
@@ -238,6 +240,7 @@ crossorigin="anonymous"></script>
 <script src={% static '/js/status.js' %}></script>
 <script src={% static '/js/pcr.js' %}></script>
 <script src={% static '/js/final_bill.js' %}></script>
+<script src={% static '/js/jo_duedate.js' %}></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.js"></script>
 
 <script>
