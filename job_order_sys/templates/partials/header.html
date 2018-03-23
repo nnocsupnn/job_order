@@ -12,8 +12,10 @@
             font-size: 12px;
         }
         #th{
-            font-size: 12px;
+            font-size: 13px;
             cursor: pointer;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: bold;
         }
         .circular.button:hover{
             box-shadow: 5px 5px 5px #888888;
@@ -23,10 +25,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 
-    <title>JO - Project Monitoring</title>
 </head>
-<body>
-        <div class="ui menu">
+<body onload="startTime();">
+        <div class="ui inverted menu">
             <a id="menuBtn" class="item">
                 <i class="bars icon"></i> Menu
             </a>
@@ -38,7 +39,7 @@
             </a>
             
             <div class="right menu">
-                 
+                <a class="item" style="font-size: 16px;font-family:'Courier New', Courier, monospace;" id="clock"></a>
             </div>
         </div>
         <div class="ui thin sidebar vertical inverted labeled icon menu">
@@ -58,13 +59,87 @@
                 <i class="ui spy icon"></i>Admin
             </a>
             <a class="item" id="onlineUser"><i class="circle green icon"></i> Online</a>
-            <a class="item" href="/logout">
+            <a class="item" id="logoutBtn">
                 <i class="sign out alternate icon"></i>Logout?
             </a>
-            
+            <a class="item" id="aboutBtn">
+                <i class="info circle icon"></i>About
+            </a>
         </div>
 
+        <!---about modal-->
+        <div class="ui mini modal" id="modalAbout">
+                <div class="header"><i class="info circle icon"></i> About</div>
+                <div class="content">
+                    <table class="ui table bordered celled">
+                        <thead>
+                            <tr>
+                                <th colspan="2">
+                                    Details
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong>Department</strong>
+                                </td>
+                                <td>
+                                    Accounting
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Language & Frameworks</strong>
+                                </td>
+                                <td>
+                                    <strong>Python</strong> (Django 3.x),  <strong>JavaScript</strong>, <strong>CSS</strong> (semantic-ui)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Development Time</strong>
+                                </td>
+                                <td>
+                                    46 Days
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Coded By</strong>
+                                </td>
+                                <td>
+                                    0n1nB0y
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="actions">
+                <div class="ui vk cancel button">Close</div>
+                </div>
+            </div>
 
+            <div class="ui mini basic modal" id="logoutModal">
+            <div class="ui icon header">
+                <i class="sign out alternate icon"></i>
+                Logout
+            </div>
+            <div class="content">
+                <p>Clicking Yes will log you out from the System?</p>
+            </div>
+            <div class="actions">
+                <a href="/logout" class="ui green ok inverted button">
+                <i class="checkmark icon"></i>
+                    Yes
+                </a>
+                <div class="ui red basic cancel inverted button">
+                <i class="remove icon"></i>
+                No
+                </div>
+                
+            </div>
+            </div>
 
         <div class="ui mini modal" id="modalOnline">
                 <div class="header"><i class="bar chart icon"></i> Online Users</div>
@@ -81,16 +156,25 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/components/sidebar.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.js"></script>
 <script>
+        $('#aboutBtn').on('click',()=>{
+            $('#modalAbout').modal('show');
+        });
+
         $('#onlineUser').on('click',()=>{
             $('#modalOnline').modal('show');
         });
-   $('#menuBtn').on('click',()=>{
-     $('.ui.sidebar').sidebar('toggle');
-   });
 
-   $('.item').on('blur','a.item',function(){
-        $(this).addClass('active');
-   });
+        $('#logoutBtn').on('click',()=>{
+            $('#logoutModal').modal('show');
+        });
+
+        $('#menuBtn').on('click',()=>{
+            $('.ui.sidebar').sidebar('toggle');
+        });
+
+        $('.item').on('blur','a.item',function(){
+                $(this).addClass('active');
+        });
    
    
 </script>

@@ -160,4 +160,4 @@ def addcomment(request, id):
     else:
         return HttpResponse('Something went Wrong..')
 
-    
+    #oninboy - Nino Manalo Casupanan @ nincas21@gmail.com

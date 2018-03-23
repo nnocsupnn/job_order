@@ -46,6 +46,7 @@ $('#dataTable tr td#legend').each(function(){
     }
     else {
         $(this).closest('tr').find('#coccc').html('<i class="large green checkmark icon"></i>');
+        $(this).closest('tr').find('#coccc').append('<br><i>Recieved<br>'+coc+'<i>');
         no_coc++;
     } 
 });

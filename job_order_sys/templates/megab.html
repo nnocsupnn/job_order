@@ -1,10 +1,12 @@
 {% include 'partials/header.html' %}
+
+<title>Mega A - Projects</title>
 {% load staticfiles %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
 
 <div class="" style="margin: 5px;margin-top:25px;">
     <h1 class="ui horizontal divider header">
-    Mega B - Projects </h1><br>
+    Mega A - Projects </h1><br>
 </div>
 
 
@@ -140,7 +142,7 @@
 
 
 </div>
-    <table class="ui celled structured selectable table" style="font-size: 12px;text-align: center;" id="dataTable">
+    <table class="ui celled structured selectable table" style="font-size: 11.5px;text-align: center;" id="dataTable">
         <thead>
         <tr>
             <th rowspan="2" id="th" style="font-size: 20px;">Project Code</th>
@@ -149,15 +151,15 @@
             <th rowspan="2" id="th" data-tooltip="Purchase Order" data-inverted>PO</th>
             <th rowspan="2" id="th" data-tooltip="Certificate of Completion" data-inverted>COC</th>
             <th rowspan="2" id="th" data-tooltip="PCR" data-inverted>PCR</th>
-            <th rowspan="2" id="th">Revision</th>
+            <th width="1%" rowspan="2" id="th">Revision</th>
             <th rowspan="2" hidden id="th" class="joCodee" id="joCodee">JO Code</th>
             <th rowspan="2" id="th">Client</th>
             <th hidden rowspan="2" id="th">QL/QN</th>
             <th hidden rowspan="2" id="th">Project No.</th>
             <th rowspan="2" id="th">Contract Price</th>
-            <th rowspan="2" id="th">Terms (Due/Delayed)</th>
+            <th rowspan="2" id="th">Terms</th>
             <th colspan="2" id="th">Billing Date</th>
-            <th colspan="3" id="th">Invoices</th>  
+            <th colspan="2" id="th">Invoices</th>  
             
         </tr>
         <tr>
@@ -165,7 +167,7 @@
             <th id="th">PCR Billing Date</th>
             <th id="th">Initial Invoice</th>
             <th id="th">Final Billing</th>
-            <th id="th">Addendum</th>
+            <th hidden id="th">Addendum</th>
         </tr>
     </thead>
         <tbody>
@@ -218,8 +220,8 @@
             <td id="startDate"></td>
             <td id="pcrBilldate">{{jos.jo_pcr_date_bill}}</td>  
             <td id="invoiceNo"></td>  
-            <td id="final_billing">{{jos.jo_final_billing}} <br> {{jos.jo_final_date}}</td> 
-            <td>{{jos.jo_addendum}}</td>
+            <td id="final_billing"></td> 
+            <td hidden>{{jos.jo_addendum}}</td>
         </tr>
         {% endfor %}
     </tbody>
@@ -244,6 +246,28 @@ crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.js"></script>
 
 <script>
+
+    function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        hour = [1,2,3,4,5,6,7,8,9,10,11,12,12,1,2,3,4,5,6,7,8,9,10,11,12];
+        months = ['Jan.','Feb.','Mar.','Apr.','May.','Jun.','Jul.','Aug.','Sep.','Oct.','Nov.','Dec.'];
+        var dateToday = months[today.getMonth()] + ' ' + today.getDay() + ', ' + today.getFullYear();
+        document.getElementById('clock').innerHTML =
+        dateToday + ' / ' +hour[h] + ":" + m + ":" + s +' PM';
+        var t = setTimeout(startTime, 500);
+        
+    }
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+    }
+      
+
     $('.ui.message').delay(3000).hide(300);
     
     if(window.screen.availWidth < 800){

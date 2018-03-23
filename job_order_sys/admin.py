@@ -24,3 +24,5 @@ admin.site.register(Comments, CommentAdmin)
 
 #setting site header
 admin.site.site_header = "Project Administration"
+
+#oninboy - Nino Manalo Casupanan @ nincas21@gmail.com

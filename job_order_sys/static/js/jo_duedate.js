@@ -26,6 +26,7 @@ $('#dataTable tr#dataa').each(function(){
         var newBillDate = new Date(initialDate[i]);
         var delay = Math.floor((newBillDate - newJODate)/(1000 * 60 * 60 * 24));
         
+        
         delay -= 5;
         
         if(initialDate[i] == 'None'){
@@ -37,6 +38,7 @@ $('#dataTable tr#dataa').each(function(){
             }
             else{
                 $(this).closest('tr').find('#startDate').append('<hr><i class="" style="color: red;">'+delay+' day(s)</i>');
+                console.log(delay);
             }
             
         }

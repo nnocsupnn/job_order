@@ -17,11 +17,14 @@ $('#dataTable tr#dataa').each(function(){
     let invAll = [inv1,inv2,inv3,inv4,inv5];
     //var diff = Math.floor((dateDue - toDate)/(1000 * 60 * 60 * 24));
     for(var i = 0;i < invAll.length;i++){
+        var initTxt = ['st','nd','rd','th','th'];
+        var no = i;
+        no += 1;
        if(invAll[i] == '0'){
-        
+            //
        }
        else{
-            $(this).closest('tr').find('#final_billing').append(invAll[i]+'<br>');
+            $(this).closest('tr').find('#final_billing').append('<i style="color: blue; font-weight: bold;">'+no+initTxt[i]+'</i> - '+invAll[i]+'<br>');
             if(dateDifference < 0){
                 dateDifference = Math.abs(dateDifference);
                 $(this).closest('tr').find('#final_billing').append('<i class="info circle red icon"></i><i style="color: red;">'+dateDifference+' day(s)</i><hr>');

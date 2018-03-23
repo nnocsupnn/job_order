@@ -16,4 +16,5 @@ def get_all_logged_in_users():
         
     # Query all logged in users based on id list
     return User.objects.filter(id__in=uid_list)
-    
+
+#oninboy - Nino Manalo Casupanan @ nincas21@gmail.com

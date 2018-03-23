@@ -68,13 +68,13 @@ $('#dataTable tr#dataa').each(function(){
                 var invDate_jo = new Date(inv_dates[i]);
                 var delay = Math.floor((invDate_jo - newJo_date)/(1000 * 60 * 60 * 24));
                 delay = delay + 5;
-                console.log(delay);
+                //console.log(delay);
                 if(delay < 0){
                     $(this).closest('tr').find('#startDate').append('<hr><i style="font-size: 11px;">'+inv_dates[i]+'<br></i>');
                     
                 }
                 else{
-                    $(this).closest('tr').find('#startDate').append('<hr><i style="font-size: 11px;color:red;">'+delay+' day(s)</i><br></i>');
+                    //
                 }
 
                 var newDate = new Date(terms);
@@ -90,6 +90,8 @@ $('#dataTable tr#dataa').each(function(){
                 if(diff < 0){
                     checkifPaid = true;
                     diff = Math.abs(diff);
+                    
+                
                     $(this).closest('tr').find('#idCode').removeClass('vk').addClass('youtube');
                     $(this).closest('tr').find('#invoiceNo').append("<br><i class=\"attention red icon\"></i><i style=\"color: red;\">"+(diff-5)+" day(s)</strong></i>");
                     var codee = $(this).find('#cocCode').text();
@@ -100,8 +102,11 @@ $('#dataTable tr#dataa').each(function(){
                         
                     }
                 }
-                $(this).closest('tr').find('#startDate').append('<i style="font-size: 11px;">'+inv_dates[i]+'<br></i>');
-                $(this).closest('tr').find('#invoiceNo').append('<hr><i style="font-size: 11px;">'+inv_dates[i]+'<br></i>');
+                var initTxt = ['st','nd','rd','th','th'];
+                var no = i;
+                no += 1;
+                $(this).closest('tr').find('#startDate').append('<i style="font-size: 11px;"><i style="color: blue; font-weight: bold;">'+no+initTxt[i]+'</i> - '+inv_dates[i]+'<br></i>');
+                $(this).closest('tr').find('#invoiceNo').append('<i style="font-size: 11px;"><i style="color: blue; font-weight: bold;">'+no+initTxt[i]+'</i> - '+invAll[i]+'<br></i>');
                
             }
     	}

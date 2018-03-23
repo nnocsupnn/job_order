@@ -40,8 +40,6 @@ class MegaA(models.Model):
                ('coc','coc'))
     jo_coc = models.DateField(default=None, blank=True, null=True)
 
-    jo_inv_no = models.CharField(max_length=100)
-    
     jo_inv_date1 = models.DateField(default=None, blank=True, null=True)
     jo_invoice1 = models.CharField(max_length=200,default="0")
     jo_or1 = models.CharField(max_length=200,default="0")
@@ -67,17 +65,10 @@ class MegaA(models.Model):
     jo_or5 = models.CharField(max_length=200,default="0")
     jo_payment_date_5 = models.DateField(default=None, blank=True, null=True)
 
-    jo_or_date = models.DateField(default=date.today()) 
-    jo_second_inv = models.CharField(max_length=100)
-    jo_payment_date1 = models.DateField(default=date.today()) 
-
     jo_addendum_date = models.DateField(default=None, blank=True, null=True)
     jo_addendum = models.CharField(max_length=100,default='0') 
-
     jo_final_date = models.DateField(default=None, blank=True, null=True)
     jo_final_billing = models.CharField(max_length=100)
-
-    jo_payment_date2 = models.DateField(default=date.today()) 
     jo_remarks = models.CharField(max_length=200)
     jo_rev = models.IntegerField(max_length=11,default='0')
     class Meta:
@@ -108,10 +99,7 @@ class MegaB(models.Model):
                ('coc','coc'))
     jo_coc = models.DateField(default=None, blank=True, null=True)
 
-
-    jo_inv_no = models.CharField(max_length=100)
-    
-    jo_inv_date1 = models.DateField(default=None, blank=True, null=True) 
+    jo_inv_date1 = models.DateField(default=None, blank=True, null=True)
     jo_invoice1 = models.CharField(max_length=200,default="0")
     jo_or1 = models.CharField(max_length=200,default="0")
     jo_payment_date_1 = models.DateField(default=None, blank=True, null=True)
@@ -136,17 +124,10 @@ class MegaB(models.Model):
     jo_or5 = models.CharField(max_length=200,default="0")
     jo_payment_date_5 = models.DateField(default=None, blank=True, null=True)
 
-    jo_or_date = models.DateField(default=date.today()) 
-    jo_second_inv = models.CharField(max_length=100)
-    jo_payment_date1 = models.DateField(default=date.today())
-     
     jo_addendum_date = models.DateField(default=None, blank=True, null=True)
     jo_addendum = models.CharField(max_length=100,default='0') 
-
     jo_final_date = models.DateField(default=None, blank=True, null=True)
     jo_final_billing = models.CharField(max_length=100)
-
-    jo_payment_date2 = models.DateField(default=date.today()) 
     jo_remarks = models.CharField(max_length=200)
     jo_rev = models.IntegerField(max_length=11,default='0')
     class Meta:
@@ -165,3 +146,5 @@ class Comments(models.Model):
         verbose_name_plural= "Comments"
     def __str__(self):
         return self.comment_user
+
+#oninboy - Nino Manalo Casupanan @ nincas21@gmail.com
