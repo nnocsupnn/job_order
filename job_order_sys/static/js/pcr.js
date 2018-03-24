@@ -8,15 +8,12 @@ $('#dataTable tr#dataa').each(function(){
     var newBillDate = new Date(billdate);
     var delay = Math.floor((newBillDate - newPcrDate)/(1000 * 60 * 60 * 24));
     delay -= 5;
-    if(delay <= 0){
-        
+    if(delay < 0){
+        //console.log(delay);
     }
     else{
-        if(delay < 4){
-
-        }
-        else{
-            $(this).closest('tr').find('#pcrBilldate').append('<hr><i class="" style="color: red;">'+(delay)+' day(s)</i>');
-        }
+        delay = Math.abs(delay);
+        $(this).closest('tr').find('#pcrBilldate').append('<div class="ui red horizontal label">'+(delay)+' day(s)</div>');
+        console.log(delay);
     }
 });

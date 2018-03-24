@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <title>Projects - Mega A</title>
+    <title>Projects {{jos.jo_code}}</title>
 </head>
 <body>
         <div class="ui menu">
@@ -126,8 +126,34 @@
     </div>
 
     <!-- all invoices -->
+    <div class="ui blue raised segment">
+    <h3 class="ui horizontal divider header">PCR</h3>
+    <div class="field">
+    <div class="four fields">
+    <div class="field">
+        <label>PCR Bill Date</label>
+        <input type="text" value="{{jos.jo_pcr_date_bill}}">
+    </div>
+    <div class="field">
+        <label>PCR Invoice</label>
+            <input type="text" value="{{jos.jo_pcr_invoice}}">
+        </div>
+        <div class="field">
+        <label>PCR OR</label>
+            <input type="text" value="{{jos.jo_pcr_or}}">
+        </div>
+        <div class="field">
+        <label>PCRPayment Date</label>
+            <input type="text" value="{{jos.jo_pcr_payment_date}}">
+        </div>
+    </div>
+    </div>
+    </div>
+
     <div class="ui black raised segment">
     <h3 class="ui horizontal divider header">Invoice & OR</h3>
+    
+    
     <div class="field">
     <div class="four fields">
     <div class="field">
@@ -254,7 +280,7 @@
     <div class="two fields">
     <div class="field">
         <label>Final Billing</label>
-        <input type="text" value="{{jos.jo_addendum}}">
+        <input type="text" value="{{jos.jo_pcr_invoice}}">
     </div>
     </div>
         <label>Remarks</label>

@@ -47,11 +47,11 @@ $('#dataTable tr#dataa').each(function(){
     //console.log(count__or);
     //check if invoice and count is both not null
     if (invoicee == count__or) {
-    	$(this).closest('tr').find('#invoiceNo').html('<i class=\"info circle green icon\" style="font-size: 18px;"></i><b>PAID</b>');
+    	$(this).closest('tr').find('#invoiceNo').append('<div class="ui green horizontal label">PAID</div>');
     
     }
     else{
-    	$(this).closest('tr').find('#invoiceNo').append('<br><i class=\"info circle blue icon\"></i><b>Current</b>');
+    	$(this).closest('tr').find('#invoiceNo').append('<br><div class="ui blue horizontal label">Current</div>');
     }
     
 

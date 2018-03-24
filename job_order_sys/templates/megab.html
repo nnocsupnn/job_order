@@ -1,6 +1,6 @@
 {% include 'partials/header.html' %}
 
-<title>Mega A - Projects</title>
+<title>Mega B - Projects</title>
 {% load staticfiles %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
 
@@ -179,6 +179,11 @@
             <td id="jo_date">{{jos.jo_date}}</td>
             <td hidden id="legend" style="color:white;"><input type="hidden" id="sign_contract" value={{jos.jo_sign_contract}}><input type="hidden"  id="po" value={{jos.jo_po_no}}><input type="hidden" value="{{jos.jo_coc}}" id="co"><input type="hidden"  id="pcrrrr" value="{{jos.jo_pcr_recieve}}"><input type="hidden"  id="joOR" value={{jos.jo_or}}>
                 <input type="hidden" id="pcrBill_date" value="{{jos.jo_pcr_date_bill}}">
+
+                <input type="hidden"  id="pcr_invoice" value="{{jos.jo_pcr_invoice}}">
+                <input type="hidden"  id="pcr_or" value="{{jos.jo_pcr_or}}">
+                <input type="hidden"  id="pcr_paymentdate" value="{{jos.jo_pcr_payment_date}}">
+
                 <input type="hidden"  id="inv_1" value={{jos.jo_invoice1}}>
                 <input type="hidden"  id="inv_2" value={{jos.jo_invoice2}}>
                 <input type="hidden"  id="inv_3" value={{jos.jo_invoice3}}>
@@ -210,7 +215,7 @@
             <td id="pop"></td>
             <td id="coccc"></td>
             <td id="pccrrrrr"></td>
-            <td>{{jos.jo_rev}}</td>
+            <td><a class="ui medium blue circular label">{{jos.jo_rev}}</a></td>
             <td hidden id="cocCode">{{jos.jo_code}}</td>
             <td>{{jos.jo_clients}}</td>
             <td hidden>{{jos.jo_qlqnChoices}}</td>

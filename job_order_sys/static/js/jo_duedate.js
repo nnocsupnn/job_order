@@ -37,7 +37,7 @@ $('#dataTable tr#dataa').each(function(){
                 //
             }
             else{
-                $(this).closest('tr').find('#startDate').append('<hr><i class="" style="color: red;">'+delay+' day(s)</i>');
+                $(this).closest('tr').find('#startDate').append('<hr><div class="ui red horizontal label">'+delay+' day(s)</div>');
                 console.log(delay);
             }
             

@@ -35,9 +35,11 @@ class MegaA(models.Model):
     jo_po_no = models.CharField(max_length=200)
     jo_pcr_recieve = models.DateField(default=None, blank=True, null=True)
     jo_pcr_date_bill = models.DateField(default=None, blank=True, null=True)
+    jo_pcr_invoice = models.CharField(max_length=200)
+    jo_pcr_or = models.CharField(max_length=200)
+    jo_pcr_payment_date = models.DateField(default=None, blank=True, null=True)
 
-    choices = (('nococ','nococ'),
-               ('coc','coc'))
+    
     jo_coc = models.DateField(default=None, blank=True, null=True)
 
     jo_inv_date1 = models.DateField(default=None, blank=True, null=True)
@@ -67,9 +69,8 @@ class MegaA(models.Model):
 
     jo_addendum_date = models.DateField(default=None, blank=True, null=True)
     jo_addendum = models.CharField(max_length=100,default='0') 
-    jo_final_date = models.DateField(default=None, blank=True, null=True)
-    jo_final_billing = models.CharField(max_length=100)
-    jo_remarks = models.CharField(max_length=200)
+    
+    jo_remarks = models.TextField(max_length=300,null=True)
     jo_rev = models.IntegerField(max_length=11,default='0')
     class Meta:
         verbose_name_plural= "MegaA - Projects"
@@ -94,9 +95,11 @@ class MegaB(models.Model):
     jo_po_no = models.CharField(max_length=200)
     jo_pcr_recieve = models.DateField(default=None, blank=True, null=True)
     jo_pcr_date_bill = models.DateField(default=None, blank=True, null=True)
+    jo_pcr_invoice = models.CharField(max_length=200)
+    jo_pcr_or = models.CharField(max_length=200)
+    jo_pcr_payment_date = models.DateField(default=None, blank=True, null=True)
 
-    choices = (('nococ','nococ'),
-               ('coc','coc'))
+    
     jo_coc = models.DateField(default=None, blank=True, null=True)
 
     jo_inv_date1 = models.DateField(default=None, blank=True, null=True)
@@ -126,9 +129,8 @@ class MegaB(models.Model):
 
     jo_addendum_date = models.DateField(default=None, blank=True, null=True)
     jo_addendum = models.CharField(max_length=100,default='0') 
-    jo_final_date = models.DateField(default=None, blank=True, null=True)
-    jo_final_billing = models.CharField(max_length=100)
-    jo_remarks = models.CharField(max_length=200)
+    
+    jo_remarks = models.TextField(max_length=300,null=True)
     jo_rev = models.IntegerField(max_length=11,default='0')
     class Meta:
         verbose_name_plural= "MegaB - Projects"
