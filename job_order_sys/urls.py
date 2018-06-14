@@ -12,3 +12,5 @@ urlpatterns = [
     url(r'^logout/$', views.logout_page, name="logout_page"),
     url(r'^authenticate$', views.loggedin_page, name="loggedin_page")
 ]
+
+#oninboy - Nino Manalo Casupanan @ nincas21@gmail.com

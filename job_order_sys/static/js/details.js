@@ -1,30 +1,17 @@
 
-
-    $("#top").click(function() {
-        $("html, body").animate({ scrollTop: 0 }, "slow");
-        return false;
-        });
-        
-    var leg = $('#leg').val();
-    if(leg == '1'){
-        $('#leg').val('No Signed Contract');
-    }
-    else if(leg == '2'){
-        $('#leg').val('Signed Contract');
-    }
-    else if(leg == '3'){
-        $('#leg').val('with POs');
-    }
-    else if(leg == '4'){
-        $('#leg').val('w/o POs');
-    }
-    else if(leg == '5'){
-        $('#leg').val('w/ COC');
-    }
-    else if(leg == '6'){
-        $('#leg').val('w/o COC');
-    }
-
+//back  to top button animation
+$("#top").click(function() {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
+    });
+let sc_status = $('#SignContractStatus').val();
+if(sc_status == 'sc'){
+    $('#SignContractStatus').val('Signed Contract');
+}
+else{
+    $('#SignContractStatus').val('No Signed Contract');
+    $('#scLabel').append(' <i class="circle icon red"></i>');
+}
 
 $(document).ready(function(){
     $('textarea').attr('readonly','readonly');

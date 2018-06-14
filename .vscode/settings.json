@@ -1,4 +1,5 @@
 {
     "terminal.integrated.fontSize": 10.8,
-    "python.pythonPath": "C:\\Python27\\python.exe",
+    "python.pythonPath": "C:\\Users\\nino-pc\\AppData\\Local\\Programs\\Python\\Python36-32\\python.exe",
+    "git.ignoreLimitWarning": true,
 }

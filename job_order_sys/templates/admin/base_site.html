@@ -1,7 +1,10 @@
 {% extends "admin/base.html" %}
 
+
 {% block extrastyle %}
+
 {% load staticfiles %}
+
 <link rel="shortcut icon" href="{% static 'tabico/icon_doc.ico' %}">
 <style>
     #header {
@@ -28,4 +31,11 @@
 
 {% block branding %}
 <h1 id="site-name"><a href="{% url 'admin:index' %}">Project Administration</a></h1>
+{% endblock %}
+
+{% block userlinks %}
+
+        <a href="/megaa" style="font-size: 16px;font-weight: bold;color:white;">View Site</a> /
+        <a href="{% url 'admin:password_change' %}">Change password</a> /
+        <a href="{% url 'admin:logout' %}" style="color: white;font-size: 16px;font-weight: bold;">Log out</a>
 {% endblock %}

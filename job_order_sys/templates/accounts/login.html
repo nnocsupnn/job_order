@@ -17,21 +17,23 @@
 <body>
   
 <div class="raised container" id="loginDiv">
+    
     <h4 class="flow-text"><i class="info circle icon"></i> Signin</h4>
     {% csrf_token %}
     
     <div class="input-field" style="margin-top: 20px;">
         <input name="username" id="username" type="text" class="validate">
-        <label for="username"><i class="user icon"></i>Username</label>
+        <label for="username"><i class="user icon"></i> username</label>
     </div>
     <div class="input-field">
         <input name="password" id="password" type="password" class="validate">
-        <label for="password"><i class="eye icon"></i> Password</label>
+        <label for="password"><i class="eye icon"></i> password</label>
     </div>
-    <button style="width: 100%;" class="btn waves-effect waves-light z-depth-4" type="submit" id="btnLogin">Confirm</button>
-    <br>
+    <button style="width: 100%;" class="btn waves-effect waves-light z-depth-4 green right" type="submit" id="btnLogin">Confirm</button>
+    <br><br>
     <a href="/admin" data-tooltip="Login as SuperUser" data-inverted style="float: right;margin-top: 10px;">Admin?</a>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
